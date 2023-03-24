@@ -1,0 +1,77 @@
+@use "sass:map";
+
+$planets: (
+    earth: (
+        // radius: 6400,
+        // distance: 150,
+        // period: 365,
+        radius: 10,
+        distance: 200,
+        period: 5,
+        colour: rgb(38, 99, 192)
+    ) ,
+    mercury: (
+        // radius: 2440,
+        // distance: 58,
+        // period: 88,
+        radius: 5,
+        distance: 75,
+        period: 1,
+        colour: rgb(183, 83, 206)
+    )
+);
+
+$scale-factors: (
+    radius: 640
+);
+
+@each $planet, $values in $planets {
+    ##{$planet} {
+        --offset: calc((var(--diameter-sun) / 2) - #{map.get($values, "radius")}px);
+        top: var(--offset);
+        left: var(--offset);
+
+        background-color: #{map.get($values, "colour")};
+        width: calc(2 * #{map.get($values, "radius") + px});
+    
+        transform: translate(calc(cos(0deg) * #{map.get($values, "distance")}),
+                calc(sin(0deg) * #{map.get($values, "distance")}));
+    
+        animation: rotate-#{$planet} #{map.get($values, "period")}s linear infinite;
+    }
+
+    @keyframes rotate-#{$planet} {
+        0% {
+            transform: rotate(0deg) translateY(#{map.get($values, "distance") + px})  rotate(0deg);
+        }
+    
+        100% {
+            transform: rotate(-360deg) translateY(#{map.get($values, "distance") + px}) rotate(360deg);
+        }
+    }
+}
+
+:root {
+    --diameter-sun: 100px;
+    --colour-sun: rgb(229, 181, 51);
+}
+
+body {
+    background-color: black;
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.celestial-body {
+    position: absolute;
+    aspect-ratio: 1;
+    border-radius: 50%;
+}
+
+#sun {
+    background-color: var(--colour-sun);
+    width: var(--diameter-sun);
+    position: relative;
+}

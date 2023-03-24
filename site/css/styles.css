@@ -1,14 +1,42 @@
+#earth {
+  --offset: calc((var(--diameter-sun) / 2) - 10px);
+  top: var(--offset);
+  left: var(--offset);
+  background-color: rgb(38, 99, 192);
+  width: calc(2 * 10px);
+  transform: translate(calc(cos(0deg) * 200), calc(sin(0deg) * 200));
+  animation: rotate-earth 5s linear infinite;
+}
+
+@keyframes rotate-earth {
+  0% {
+    transform: rotate(0deg) translateY(200px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg) translateY(200px) rotate(360deg);
+  }
+}
+#mercury {
+  --offset: calc((var(--diameter-sun) / 2) - 5px);
+  top: var(--offset);
+  left: var(--offset);
+  background-color: rgb(183, 83, 206);
+  width: calc(2 * 5px);
+  transform: translate(calc(cos(0deg) * 75), calc(sin(0deg) * 75));
+  animation: rotate-mercury 1s linear infinite;
+}
+
+@keyframes rotate-mercury {
+  0% {
+    transform: rotate(0deg) translateY(75px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg) translateY(75px) rotate(360deg);
+  }
+}
 :root {
   --diameter-sun: 100px;
   --colour-sun: rgb(229, 181, 51);
-  --diameter-earth: 20px;
-  --colour-earth: rgb(38, 99, 192);
-  --distance-earth: 200px;
-  --period-earth: 5s;
-  --diameter-mercury: 10px;
-  --colour-mercury: rgb(183, 83, 206);
-  --distance-mercury: 75px;
-  --period-mercury: 1s;
 }
 
 body {
@@ -29,43 +57,6 @@ body {
   background-color: var(--colour-sun);
   width: var(--diameter-sun);
   position: relative;
-}
-
-#earth {
-  --offset: calc((var(--diameter-sun) / 2) - (var(--diameter-earth) / 2));
-  top: var(--offset);
-  left: var(--offset);
-  background-color: var(--colour-earth);
-  width: var(--diameter-earth);
-  transform: translate(calc(cos(0deg) * var(--distance-earth)), calc(sin(0deg) * var(--distance-earth)));
-  animation: rotate-earth var(--period-earth) linear infinite;
-}
-
-#mercury {
-  --offset: calc((var(--diameter-sun) / 2) - (var(--diameter-mercury) / 2));
-  top: var(--offset);
-  left: var(--offset);
-  background-color: var(--colour-mercury);
-  width: var(--diameter-mercury);
-  transform: translate(calc(cos(0deg) * var(--distance-mercury)), calc(sin(0deg) * var(--distance-mercury)));
-  animation: rotate-mercury var(--period-mercury) linear infinite;
-}
-
-@keyframes rotate-earth {
-  0% {
-    transform: rotate(0deg) translateY(var(--distance-earth)) rotate(0deg);
-  }
-  100% {
-    transform: rotate(-360deg) translateY(var(--distance-earth)) rotate(360deg);
-  }
-}
-@keyframes rotate-mercury {
-  0% {
-    transform: rotate(0deg) translateY(var(--distance-mercury)) rotate(0deg);
-  }
-  100% {
-    transform: rotate(-360deg) translateY(var(--distance-mercury)) rotate(360deg);
-  }
 }
 
 /*# sourceMappingURL=styles.css.map */
