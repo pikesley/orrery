@@ -52,9 +52,9 @@ $planets: (
 );
 
 $scale-factors: (
-    sun: 300000,
-    radius: 3000,
-    distance: 10,
+    sun: 3000000,
+    radius: 35000,
+    distance: 100,
     period: 100,
 );
 
@@ -73,25 +73,25 @@ $values in $planets {
     ##{$planet} {
         $offset: calc($scaled-sun - $scaled-radius);
 
-        top: $offset + px;
-        left: $offset + px;
+        top: $offset + vw;
+        left: $offset + vw;
 
-        width: calc($scaled-radius * 2) + px;
+        width: calc($scaled-radius * 2) + vw;
         background-color: #{map.get($values, "colour")};
 
-        transform: translate(calc(cos(0deg) * #{$scaled-distance + px}),
-            calc(sin(0deg) * #{$scaled-distance + px}));
+        transform: translate(calc(cos(0deg) * #{$scaled-distance + vw}),
+            calc(sin(0deg) * #{$scaled-distance + vw}));
 
-        animation: rotate-#{$planet} #{$scaled-period}s linear infinite;
+        animation: orbit-#{$planet} #{$scaled-period}s linear infinite;
     }
 
-    @keyframes rotate-#{$planet} {
+    @keyframes orbit-#{$planet} {
         0% {
-            transform: rotate(0deg) translateX(#{$scaled-distance + px}) rotate(0deg);
+            transform: rotate(0deg) translateX(#{$scaled-distance + vw}) rotate(0deg);
         }
 
         100% {
-            transform: rotate(-360deg) translateX(#{$scaled-distance + px}) rotate(360deg);
+            transform: rotate(-360deg) translateX(#{$scaled-distance + vw}) rotate(360deg);
         }
     }
 }
@@ -112,7 +112,7 @@ body {
 
 #sun {
     background-color: map.get($sun, "colour");
-    width: calc($scaled-sun * 2) + px;
+    width: calc($scaled-sun * 2) + vw;
     position: relative;
 }
 
@@ -127,7 +127,7 @@ $text-colour: map.get($planets, uranus, "colour");
 
     border-color: $text-colour;
     border-style: solid;
-    border-width: 1px;
+    border-width: 0.1vw;
 
     font-family: "Montserrat";
     color: $text-colour;
@@ -156,7 +156,7 @@ $text-colour: map.get($planets, uranus, "colour");
 
     tr {
         border-bottom-color: $text-colour;
-        border-bottom-width: 1px;
+        border-bottom-width: 0.1vw;
         border-bottom-style: solid;
     }
 

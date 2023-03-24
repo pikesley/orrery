@@ -1,138 +1,138 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat");
 #mercury {
-  top: 3.8266px;
-  left: 3.8266px;
-  width: 1.6266666667px;
+  top: 0.3942790476vw;
+  left: 0.3942790476vw;
+  width: 0.1394285714vw;
   background-color: rgb(183, 83, 206);
-  transform: translate(calc(cos(0deg) * 5.8px), calc(sin(0deg) * 5.8px));
-  animation: rotate-mercury 0.88s linear infinite;
+  transform: translate(calc(cos(0deg) * 0.58vw), calc(sin(0deg) * 0.58vw));
+  animation: orbit-mercury 0.88s linear infinite;
 }
 
-@keyframes rotate-mercury {
+@keyframes orbit-mercury {
   0% {
-    transform: rotate(0deg) translateX(5.8px) rotate(0deg);
+    transform: rotate(0deg) translateX(0.58vw) rotate(0deg);
   }
   100% {
-    transform: rotate(-360deg) translateX(5.8px) rotate(360deg);
+    transform: rotate(-360deg) translateX(0.58vw) rotate(360deg);
   }
 }
 #venus {
-  top: 2.6232666667px;
-  left: 2.6232666667px;
-  width: 4.0333333333px;
+  top: 0.2911361905vw;
+  left: 0.2911361905vw;
+  width: 0.3457142857vw;
   background-color: rgb(173, 227, 140);
-  transform: translate(calc(cos(0deg) * 10.8px), calc(sin(0deg) * 10.8px));
-  animation: rotate-venus 2.25s linear infinite;
+  transform: translate(calc(cos(0deg) * 1.08vw), calc(sin(0deg) * 1.08vw));
+  animation: orbit-venus 2.25s linear infinite;
 }
 
-@keyframes rotate-venus {
+@keyframes orbit-venus {
   0% {
-    transform: rotate(0deg) translateX(10.8px) rotate(0deg);
+    transform: rotate(0deg) translateX(1.08vw) rotate(0deg);
   }
   100% {
-    transform: rotate(-360deg) translateX(10.8px) rotate(360deg);
+    transform: rotate(-360deg) translateX(1.08vw) rotate(360deg);
   }
 }
 #earth {
-  top: 2.5066px;
-  left: 2.5066px;
-  width: 4.2666666667px;
+  top: 0.2811361905vw;
+  left: 0.2811361905vw;
+  width: 0.3657142857vw;
   background-color: rgb(38, 99, 192);
-  transform: translate(calc(cos(0deg) * 15px), calc(sin(0deg) * 15px));
-  animation: rotate-earth 3.65s linear infinite;
+  transform: translate(calc(cos(0deg) * 1.5vw), calc(sin(0deg) * 1.5vw));
+  animation: orbit-earth 3.65s linear infinite;
 }
 
-@keyframes rotate-earth {
+@keyframes orbit-earth {
   0% {
-    transform: rotate(0deg) translateX(15px) rotate(0deg);
+    transform: rotate(0deg) translateX(1.5vw) rotate(0deg);
   }
   100% {
-    transform: rotate(-360deg) translateX(15px) rotate(360deg);
+    transform: rotate(-360deg) translateX(1.5vw) rotate(360deg);
   }
 }
 #mars {
-  top: 3.5066px;
-  left: 3.5066px;
-  width: 2.2666666667px;
+  top: 0.3668504762vw;
+  left: 0.3668504762vw;
+  width: 0.1942857143vw;
   background-color: rgb(141, 21, 21);
-  transform: translate(calc(cos(0deg) * 22.8px), calc(sin(0deg) * 22.8px));
-  animation: rotate-mars 6.87s linear infinite;
+  transform: translate(calc(cos(0deg) * 2.28vw), calc(sin(0deg) * 2.28vw));
+  animation: orbit-mars 6.87s linear infinite;
 }
 
-@keyframes rotate-mars {
+@keyframes orbit-mars {
   0% {
-    transform: rotate(0deg) translateX(22.8px) rotate(0deg);
+    transform: rotate(0deg) translateX(2.28vw) rotate(0deg);
   }
   100% {
-    transform: rotate(-360deg) translateX(22.8px) rotate(360deg);
+    transform: rotate(-360deg) translateX(2.28vw) rotate(360deg);
   }
 }
 #jupiter {
-  top: -19.0267333333px;
-  left: -19.0267333333px;
-  width: 47.3333333333px;
+  top: -1.5645780952vw;
+  left: -1.5645780952vw;
+  width: 4.0571428571vw;
   background-color: rgb(187, 122, 58);
-  transform: translate(calc(cos(0deg) * 77.8px), calc(sin(0deg) * 77.8px));
-  animation: rotate-jupiter 43.33s linear infinite;
+  transform: translate(calc(cos(0deg) * 7.78vw), calc(sin(0deg) * 7.78vw));
+  animation: orbit-jupiter 43.33s linear infinite;
 }
 
-@keyframes rotate-jupiter {
+@keyframes orbit-jupiter {
   0% {
-    transform: rotate(0deg) translateX(77.8px) rotate(0deg);
+    transform: rotate(0deg) translateX(7.78vw) rotate(0deg);
   }
   100% {
-    transform: rotate(-360deg) translateX(77.8px) rotate(360deg);
+    transform: rotate(-360deg) translateX(7.78vw) rotate(360deg);
   }
 }
 #saturn {
-  top: -15.3600666667px;
-  left: -15.3600666667px;
-  width: 40px;
+  top: -1.250292381vw;
+  left: -1.250292381vw;
+  width: 3.4285714286vw;
   background-color: rgb(187, 219, 58);
-  transform: translate(calc(cos(0deg) * 143px), calc(sin(0deg) * 143px));
-  animation: rotate-saturn 107.59s linear infinite;
+  transform: translate(calc(cos(0deg) * 14.3vw), calc(sin(0deg) * 14.3vw));
+  animation: orbit-saturn 107.59s linear infinite;
 }
 
-@keyframes rotate-saturn {
+@keyframes orbit-saturn {
   0% {
-    transform: rotate(0deg) translateX(143px) rotate(0deg);
+    transform: rotate(0deg) translateX(14.3vw) rotate(0deg);
   }
   100% {
-    transform: rotate(-360deg) translateX(143px) rotate(360deg);
+    transform: rotate(-360deg) translateX(14.3vw) rotate(360deg);
   }
 }
 #uranus {
-  top: -3.9934px;
-  left: -3.9934px;
-  width: 17.2666666667px;
+  top: -0.2760066667vw;
+  left: -0.2760066667vw;
+  width: 1.48vw;
   background-color: rgb(54, 156, 156);
-  transform: translate(calc(cos(0deg) * 287px), calc(sin(0deg) * 287px));
-  animation: rotate-uranus 306.87s linear infinite;
+  transform: translate(calc(cos(0deg) * 28.7vw), calc(sin(0deg) * 28.7vw));
+  animation: orbit-uranus 306.87s linear infinite;
 }
 
-@keyframes rotate-uranus {
+@keyframes orbit-uranus {
   0% {
-    transform: rotate(0deg) translateX(287px) rotate(0deg);
+    transform: rotate(0deg) translateX(28.7vw) rotate(0deg);
   }
   100% {
-    transform: rotate(-360deg) translateX(287px) rotate(360deg);
+    transform: rotate(-360deg) translateX(28.7vw) rotate(360deg);
   }
 }
 #neptune {
-  top: -3.6100666667px;
-  left: -3.6100666667px;
-  width: 16.5px;
+  top: -0.2431495238vw;
+  left: -0.2431495238vw;
+  width: 1.4142857143vw;
   background-color: rgb(196, 196, 196);
-  transform: translate(calc(cos(0deg) * 450px), calc(sin(0deg) * 450px));
-  animation: rotate-neptune 601.9s linear infinite;
+  transform: translate(calc(cos(0deg) * 45vw), calc(sin(0deg) * 45vw));
+  animation: orbit-neptune 601.9s linear infinite;
 }
 
-@keyframes rotate-neptune {
+@keyframes orbit-neptune {
   0% {
-    transform: rotate(0deg) translateX(450px) rotate(0deg);
+    transform: rotate(0deg) translateX(45vw) rotate(0deg);
   }
   100% {
-    transform: rotate(-360deg) translateX(450px) rotate(360deg);
+    transform: rotate(-360deg) translateX(45vw) rotate(360deg);
   }
 }
 body {
@@ -151,7 +151,7 @@ body {
 
 #sun {
   background-color: rgb(229, 181, 51);
-  width: 9.2798666667px;
+  width: 0.9279866667vw;
   position: relative;
 }
 
@@ -162,7 +162,7 @@ body {
   padding: 1rem;
   border-color: rgb(54, 156, 156);
   border-style: solid;
-  border-width: 1px;
+  border-width: 0.1vw;
   font-family: "Montserrat";
   color: rgb(54, 156, 156);
   background-color: black;
@@ -184,7 +184,7 @@ body {
 }
 #words tr {
   border-bottom-color: rgb(54, 156, 156);
-  border-bottom-width: 1px;
+  border-bottom-width: 0.1vw;
   border-bottom-style: solid;
 }
 #words td {
