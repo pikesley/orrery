@@ -125,6 +125,10 @@ $text-colour: map.get($planets, uranus, "colour");
 
     padding: 1rem;
 
+    max-width: 80%;
+    max-height: 90%;
+    overflow: scroll;
+
     border-color: $text-colour;
     border-style: solid;
     border-width: 0.1vw;
@@ -135,7 +139,6 @@ $text-colour: map.get($planets, uranus, "colour");
     background-color: black;
     opacity: 0.7;
 
-    max-width: 50%;
 
     display: none;
 

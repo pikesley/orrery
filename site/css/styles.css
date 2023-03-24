@@ -160,6 +160,9 @@ body {
   top: 1rem;
   left: 1rem;
   padding: 1rem;
+  max-width: 80%;
+  max-height: 90%;
+  overflow: scroll;
   border-color: rgb(54, 156, 156);
   border-style: solid;
   border-width: 0.1vw;
@@ -167,7 +170,6 @@ body {
   color: rgb(54, 156, 156);
   background-color: black;
   opacity: 0.7;
-  max-width: 50%;
   display: none;
 }
 #words h1 {
