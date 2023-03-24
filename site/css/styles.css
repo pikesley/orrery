@@ -1,52 +1,137 @@
 #mercury {
-  top: 24.0271px;
-  left: 24.0271px;
-  width: 7.625px;
+  top: 3.8266px;
+  left: 3.8266px;
+  width: 1.6266666667px;
   background-color: rgb(183, 83, 206);
-  transform: translate(calc(cos(0deg) * 58px), calc(sin(0deg) * 58px));
-  animation: rotate-mercury 2.4444444444s linear infinite;
+  transform: translate(calc(cos(0deg) * 5.8px), calc(sin(0deg) * 5.8px));
+  animation: rotate-mercury 0.88s linear infinite;
 }
 
 @keyframes rotate-mercury {
   0% {
-    transform: rotate(0deg) translateX(58px) rotate(0deg);
+    transform: rotate(0deg) translateX(5.8px) rotate(0deg);
   }
   100% {
-    transform: rotate(-360deg) translateX(58px) rotate(360deg);
+    transform: rotate(-360deg) translateX(5.8px) rotate(360deg);
   }
 }
 #venus {
-  top: 18.386475px;
-  left: 18.386475px;
-  width: 18.90625px;
+  top: 2.6232666667px;
+  left: 2.6232666667px;
+  width: 4.0333333333px;
   background-color: rgb(173, 227, 140);
-  transform: translate(calc(cos(0deg) * 108px), calc(sin(0deg) * 108px));
-  animation: rotate-venus 6.25s linear infinite;
+  transform: translate(calc(cos(0deg) * 10.8px), calc(sin(0deg) * 10.8px));
+  animation: rotate-venus 2.25s linear infinite;
 }
 
 @keyframes rotate-venus {
   0% {
-    transform: rotate(0deg) translateX(108px) rotate(0deg);
+    transform: rotate(0deg) translateX(10.8px) rotate(0deg);
   }
   100% {
-    transform: rotate(-360deg) translateX(108px) rotate(360deg);
+    transform: rotate(-360deg) translateX(10.8px) rotate(360deg);
   }
 }
 #earth {
-  top: 17.8396px;
-  left: 17.8396px;
-  width: 20px;
+  top: 2.5066px;
+  left: 2.5066px;
+  width: 4.2666666667px;
   background-color: rgb(38, 99, 192);
-  transform: translate(calc(cos(0deg) * 150px), calc(sin(0deg) * 150px));
-  animation: rotate-earth 10.1388888889s linear infinite;
+  transform: translate(calc(cos(0deg) * 15px), calc(sin(0deg) * 15px));
+  animation: rotate-earth 3.65s linear infinite;
 }
 
 @keyframes rotate-earth {
   0% {
-    transform: rotate(0deg) translateX(150px) rotate(0deg);
+    transform: rotate(0deg) translateX(15px) rotate(0deg);
   }
   100% {
-    transform: rotate(-360deg) translateX(150px) rotate(360deg);
+    transform: rotate(-360deg) translateX(15px) rotate(360deg);
+  }
+}
+#mars {
+  top: 3.5066px;
+  left: 3.5066px;
+  width: 2.2666666667px;
+  background-color: rgb(141, 21, 21);
+  transform: translate(calc(cos(0deg) * 22.8px), calc(sin(0deg) * 22.8px));
+  animation: rotate-mars 6.87s linear infinite;
+}
+
+@keyframes rotate-mars {
+  0% {
+    transform: rotate(0deg) translateX(22.8px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg) translateX(22.8px) rotate(360deg);
+  }
+}
+#jupiter {
+  top: -19.0267333333px;
+  left: -19.0267333333px;
+  width: 47.3333333333px;
+  background-color: rgb(187, 122, 58);
+  transform: translate(calc(cos(0deg) * 77.8px), calc(sin(0deg) * 77.8px));
+  animation: rotate-jupiter 43.33s linear infinite;
+}
+
+@keyframes rotate-jupiter {
+  0% {
+    transform: rotate(0deg) translateX(77.8px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg) translateX(77.8px) rotate(360deg);
+  }
+}
+#saturn {
+  top: -15.3600666667px;
+  left: -15.3600666667px;
+  width: 40px;
+  background-color: rgb(187, 219, 58);
+  transform: translate(calc(cos(0deg) * 143px), calc(sin(0deg) * 143px));
+  animation: rotate-saturn 107.59s linear infinite;
+}
+
+@keyframes rotate-saturn {
+  0% {
+    transform: rotate(0deg) translateX(143px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg) translateX(143px) rotate(360deg);
+  }
+}
+#uranus {
+  top: -3.9934px;
+  left: -3.9934px;
+  width: 17.2666666667px;
+  background-color: rgb(54, 156, 156);
+  transform: translate(calc(cos(0deg) * 287px), calc(sin(0deg) * 287px));
+  animation: rotate-uranus 306.87s linear infinite;
+}
+
+@keyframes rotate-uranus {
+  0% {
+    transform: rotate(0deg) translateX(287px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg) translateX(287px) rotate(360deg);
+  }
+}
+#neptune {
+  top: -3.6100666667px;
+  left: -3.6100666667px;
+  width: 16.5px;
+  background-color: rgb(196, 196, 196);
+  transform: translate(calc(cos(0deg) * 450px), calc(sin(0deg) * 450px));
+  animation: rotate-neptune 601.9s linear infinite;
+}
+
+@keyframes rotate-neptune {
+  0% {
+    transform: rotate(0deg) translateX(450px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg) translateX(450px) rotate(360deg);
   }
 }
 body {
@@ -65,7 +150,7 @@ body {
 
 #sun {
   background-color: rgb(229, 181, 51);
-  width: 55.6792px;
+  width: 9.2798666667px;
   position: relative;
 }
 

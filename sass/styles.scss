@@ -29,13 +29,48 @@ $planets: (
         period: 365,
         colour: rgb(38, 99, 192)
     ),
+
+    mars: (
+        radius: 3400,
+        distance: 228,
+        period: 687,
+        colour: rgb(141, 21, 21)
+    ),
+
+    jupiter: (
+        radius: 71000,  
+        distance: 778,
+        period: 4333,
+        colour: rgb(187, 122, 58)
+    ), 
+
+    saturn: (
+        radius: 60000,
+        distance: 1430,
+        period: 10759,
+        colour: rgb(187, 219, 58)
+    ),
+
+    uranus: (
+        radius: 25900,
+        distance: 2870,
+        period: 30687,
+        colour: rgb(54, 156, 156)
+    ),
+
+    neptune: (
+        radius: 24750,
+        distance: 4500,
+        period: 60190,
+        colour: rgb(196, 196, 196)
+    )
 );
 
 $scale-factors: (
-    sun: 50000,
-    radius: 640,
-    distance: 1,
-    period: 36,
+    sun: 300000,
+    radius: 3000,
+    distance: 10,
+    period: 100,
 );
 
 $scaled-sun: calc(map.get($sun, "radius") / map.get($scale-factors, "sun"));
