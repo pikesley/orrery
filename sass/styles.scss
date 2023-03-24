@@ -4,9 +4,25 @@
 @import "text";
 
 $scaled-sun: calc(map.get($sun, "radius") / map.get($scale-factors, "sun"));
+
 @function scale-down($values, $key) {
     @return calc(map.get($values, $key) / map.get($scale-factors, $key))
 }
+
+@mixin tooltip($name, $colour) {
+    content: "#{$name}";
+    background-color: #{$colour};
+    color: black;
+    position: absolute;
+    left: 100%;
+    padding: 0.2rem;
+    border-radius: 0.2rem;
+    font-size: 0.8rem;
+    border: solid 1px black;
+
+    display: none;
+}
+
 
 body {
     background-color: black;
@@ -14,6 +30,8 @@ body {
     place-items: center;
     min-height: 100vh;
     overflow: hidden;
+
+    font-family: "Montserrat";
 }
 
 .celestial-body {
@@ -33,6 +51,7 @@ $values in $planets {
     $scaled-radius: scale-down($values, "radius");
     $scaled-distance: scale-down($values, "distance");
     $scaled-period: scale-down($values, "period");
+    $colour: #{map.get($values, "colour")};
 
     ##{$planet} {
         $offset: calc($scaled-sun - $scaled-radius);
@@ -41,7 +60,7 @@ $values in $planets {
         left: $offset + vw;
 
         width: calc($scaled-radius * 2) + vw;
-        background-color: #{map.get($values, "colour")};
+        background-color: $colour;
 
         transform: translate(calc(cos(0deg) * #{$scaled-distance + vw}),
             calc(sin(0deg) * #{$scaled-distance + vw}));
@@ -58,5 +77,12 @@ $values in $planets {
             transform: rotate(-360deg) translateX(#{$scaled-distance + vw}) rotate(360deg);
         }
     }
-}
 
+    ##{$planet}::after {
+        @include tooltip($planet, $colour)
+    }
+
+    ##{$planet}:hover::after {
+        display: block;
+    }
+}
