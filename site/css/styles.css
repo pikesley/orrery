@@ -213,4 +213,8 @@ body {
   display: block;
 }
 
+sup {
+  font-size: 0.8rem;
+}
+
 /*# sourceMappingURL=styles.css.map */

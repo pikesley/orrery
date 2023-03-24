@@ -187,3 +187,7 @@ $text-colour: map.get($planets, uranus, "colour");
 #words:hover {
     display: block;
 }
+
+sup {
+    font-size: 0.8rem;
+}
