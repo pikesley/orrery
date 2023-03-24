@@ -1,4 +1,5 @@
 @use "sass:map";
+@import url("https://fonts.googleapis.com/css?family=Space+Grotesk");
 
 $sun: (
     radius: 1391980,
@@ -125,4 +126,39 @@ body {
     background-color: map.get($sun, "colour");
     width: calc($scaled-sun * 2) + px;
     position: relative;
+}
+
+#words {
+    $colour: map.get($planets, uranus, "colour");
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    
+    font-family: "Space Grotesk";
+    color: $colour;
+
+    background-color: black;
+    opacity: 0.7;
+
+    max-width: 50%;
+
+    a {
+        color: map.get($planets, jupiter, "colour");
+        text-decoration: none;
+    }
+
+    table {
+        margin: 1rem;
+        border-collapse: collapse;
+    }
+
+    tr {
+        border-bottom-color: $colour;
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+    }
+
+    td {
+        padding-inline: 1rem;
+    }
 }

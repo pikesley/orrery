@@ -18,6 +18,37 @@
         <div class="celestial-body" id="uranus"></div>
         <div class="celestial-body" id="neptune"></div>
     </div>
+
+    <div id="words">
+        <h1>The CSS Orrery</h1>
+        <p>Inspired by watching <a href="https://www.youtube.com/watch?v=eO33Rh3GFGk">this Kevin Powell video about
+                trigonometry in CSS</a>, I made this pure-CSS orrery.</p>
+
+        <h2>Scaling things</h2>
+        <p>In order to fit this on the screen in a way that makes any kind of sense, some scaling choices have had to be
+            made:</p>
+        <table>
+            <tr>
+                <th>metric</th>
+                <th>scaling</th>
+            </tr>
+            <tr>
+
+                <td>planetary radius</td>
+                <td>3,000km to 1 pixel</td>
+            </tr>
+            <tr>
+
+                <td>mean planet-sun distance</td>
+                <td>10<sup>7</sup>km to 1 pixel</td>
+            </tr>
+            <tr>
+                <td>orbital period</td>
+                <td>365 Earth days to 3.65 seconds</td>
+            </tr>
+        </table>
+        In addition, the Sun's radius is scaled by 300,000km to 1 pixel
+    </div>
 </body>
 
 </html>

@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Space+Grotesk");
 #mercury {
   top: 3.8266px;
   left: 3.8266px;
@@ -152,6 +153,33 @@ body {
   background-color: rgb(229, 181, 51);
   width: 9.2798666667px;
   position: relative;
+}
+
+#words {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  font-family: "Space Grotesk";
+  color: rgb(54, 156, 156);
+  background-color: black;
+  opacity: 0.7;
+  max-width: 50%;
+}
+#words a {
+  color: rgb(187, 122, 58);
+  text-decoration: none;
+}
+#words table {
+  margin: 1rem;
+  border-collapse: collapse;
+}
+#words tr {
+  border-bottom-color: rgb(54, 156, 156);
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+}
+#words td {
+  padding-inline: 1rem;
 }
 
 /*# sourceMappingURL=styles.css.map */
