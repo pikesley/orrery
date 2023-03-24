@@ -9,14 +9,26 @@ $sun: (
 // distance is mean planet-sun distance in km^6
 // period is in earth days
 $planets: (
-    earth: (radius: 6400,
-        distance: 150,
-        period: 365,
-        colour: rgb(38, 99, 192)),
-    mercury: (radius: 2440,
+    mercury: (
+        radius: 2440,
         distance: 58,
         period: 88,
-        colour: rgb(183, 83, 206))
+        colour: rgb(183, 83, 206)
+    ), 
+    
+    venus: (
+        radius: 6050,
+        distance: 108,
+        period: 225,
+        colour: rgb(173, 227, 140)
+    ), 
+    
+    earth: (
+        radius: 6400,
+        distance: 150,
+        period: 365,
+        colour: rgb(38, 99, 192)
+    ),
 );
 
 $scale-factors: (
@@ -27,6 +39,7 @@ $scale-factors: (
 );
 
 $scaled-sun: calc(map.get($sun, "radius") / map.get($scale-factors, "sun"));
+
 @each $planet,
 $values in $planets {
     $scaled-radius: calc(map.get($values, "radius") / map.get($scale-factors, "radius"));
