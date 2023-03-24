@@ -159,11 +159,19 @@ body {
   position: fixed;
   top: 1rem;
   left: 1rem;
+  padding: 1rem;
+  border-color: rgb(54, 156, 156);
+  border-style: solid;
+  border-width: 1px;
   font-family: "Space Grotesk";
   color: rgb(54, 156, 156);
   background-color: black;
   opacity: 0.7;
   max-width: 50%;
+  display: none;
+}
+#words h1 {
+  margin-top: 0;
 }
 #words a {
   color: rgb(187, 122, 58);
@@ -180,6 +188,28 @@ body {
 }
 #words td {
   padding-inline: 1rem;
+}
+#words span {
+  display: block;
+  text-align: center;
+  width: 100%;
+  font-size: 0.8rem;
+}
+
+#show-text {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  color: rgb(54, 156, 156);
+  display: block;
+}
+
+#show-text:hover + #words {
+  display: block;
+}
+
+#words:hover {
+  display: block;
 }
 
 /*# sourceMappingURL=styles.css.map */
