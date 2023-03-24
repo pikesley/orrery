@@ -60,11 +60,15 @@ $scale-factors: (
 
 $scaled-sun: calc(map.get($sun, "radius") / map.get($scale-factors, "sun"));
 
+@function scale-down($values, $key) {
+    @return calc(map.get($values, $key) / map.get($scale-factors, $key))
+}
+
 @each $planet,
 $values in $planets {
-    $scaled-radius: calc(map.get($values, "radius") / map.get($scale-factors, "radius"));
-    $scaled-distance: calc(map.get($values, "distance") / map.get($scale-factors, "distance"));
-    $scaled-period: calc(map.get($values, "period") / map.get($scale-factors, "period"));
+    $scaled-radius: scale-down($values, "radius");
+    $scaled-distance: scale-down($values, "distance");
+    $scaled-period: scale-down($values, "period");
 
     ##{$planet} {
         $offset: calc($scaled-sun - $scaled-radius);
