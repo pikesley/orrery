@@ -1,0 +1,56 @@
+$sun: (
+    radius: 1391980,
+    colour: rgb(229, 181, 51)
+);
+
+// radius is in km
+// distance is mean planet-sun distance in km^6
+// period is in earth days
+$planets: (
+    mercury: (radius: 2440,
+        distance: 58,
+        period: 88,
+        colour: rgb(183, 83, 206)),
+
+    venus: (radius: 6050,
+        distance: 108,
+        period: 225,
+        colour: rgb(173, 227, 140)),
+
+    earth: (radius: 6400,
+        distance: 150,
+        period: 365,
+        colour: rgb(38, 99, 192)),
+
+    mars: (radius: 3400,
+        distance: 228,
+        period: 687,
+        colour: rgb(141, 21, 21)),
+
+    jupiter: (radius: 71000,
+        distance: 778,
+        period: 4333,
+        colour: rgb(187, 122, 58)),
+
+    saturn: (radius: 60000,
+        distance: 1430,
+        period: 10759,
+        colour: rgb(187, 219, 58)),
+
+    uranus: (radius: 25900,
+        distance: 2870,
+        period: 30687,
+        colour: rgb(54, 156, 156)),
+
+    neptune: (radius: 24750,
+        distance: 4500,
+        period: 60190,
+        colour: rgb(196, 196, 196))
+);
+
+$scale-factors: (
+    sun: 3000000,
+    radius: 35000,
+    distance: 100,
+    period: 100,
+);
