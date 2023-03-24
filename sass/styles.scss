@@ -1,67 +1,31 @@
 @use "sass:map";
 @import url("https://fonts.googleapis.com/css?family=Montserrat");
-
-$sun: (
-    radius: 1391980,
-    colour: rgb(229, 181, 51)
-);
-
-// radius is in km
-// distance is mean planet-sun distance in km^6
-// period is in earth days
-$planets: (
-    mercury: (radius: 2440,
-        distance: 58,
-        period: 88,
-        colour: rgb(183, 83, 206)),
-
-    venus: (radius: 6050,
-        distance: 108,
-        period: 225,
-        colour: rgb(173, 227, 140)),
-
-    earth: (radius: 6400,
-        distance: 150,
-        period: 365,
-        colour: rgb(38, 99, 192)),
-
-    mars: (radius: 3400,
-        distance: 228,
-        period: 687,
-        colour: rgb(141, 21, 21)),
-
-    jupiter: (radius: 71000,
-        distance: 778,
-        period: 4333,
-        colour: rgb(187, 122, 58)),
-
-    saturn: (radius: 60000,
-        distance: 1430,
-        period: 10759,
-        colour: rgb(187, 219, 58)),
-
-    uranus: (radius: 25900,
-        distance: 2870,
-        period: 30687,
-        colour: rgb(54, 156, 156)),
-
-    neptune: (radius: 24750,
-        distance: 4500,
-        period: 60190,
-        colour: rgb(196, 196, 196))
-);
-
-$scale-factors: (
-    sun: 3000000,
-    radius: 35000,
-    distance: 100,
-    period: 100,
-);
+@import "planets";
+@import "text";
 
 $scaled-sun: calc(map.get($sun, "radius") / map.get($scale-factors, "sun"));
-
 @function scale-down($values, $key) {
     @return calc(map.get($values, $key) / map.get($scale-factors, $key))
+}
+
+body {
+    background-color: black;
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.celestial-body {
+    position: absolute;
+    aspect-ratio: 1;
+    border-radius: 50%;
+}
+
+#sun {
+    background-color: map.get($sun, "colour");
+    width: calc($scaled-sun * 2) + vw;
+    position: relative;
 }
 
 @each $planet,
@@ -96,101 +60,3 @@ $values in $planets {
     }
 }
 
-body {
-    background-color: black;
-    display: grid;
-    place-items: center;
-    min-height: 100vh;
-    overflow: hidden;
-}
-
-.celestial-body {
-    position: absolute;
-    aspect-ratio: 1;
-    border-radius: 50%;
-}
-
-#sun {
-    background-color: map.get($sun, "colour");
-    width: calc($scaled-sun * 2) + vw;
-    position: relative;
-}
-
-$text-colour: map.get($planets, uranus, "colour");
-
-#words {
-    position: fixed;
-    top: 1rem;
-    left: 1rem;
-
-    padding: 1rem;
-
-    max-width: 80%;
-    max-height: 90%;
-    overflow: scroll;
-
-    border-color: $text-colour;
-    border-style: solid;
-    border-width: 0.1vw;
-
-    font-family: "Montserrat";
-    color: $text-colour;
-
-    background-color: black;
-    opacity: 0.7;
-
-
-    display: none;
-
-    h1 {
-        margin-top: 0;
-    }
-
-    a {
-        color: map.get($planets, jupiter, "colour");
-        text-decoration: none;
-    }
-
-    table {
-        margin: 1rem;
-        border-collapse: collapse;
-        margin-inline: auto;
-    }
-
-    tr {
-        border-bottom-color: $text-colour;
-        border-bottom-width: 0.1vw;
-        border-bottom-style: solid;
-    }
-
-    td {
-        padding-inline: 1rem;
-    }
-
-    span {
-        display: block;
-        text-align: center;
-        width: 100%;
-        font-size: 0.8rem;
-    }
-}
-
-#show-text {
-    position: fixed;
-    top: 1rem;
-    left: 1rem;
-    color: $text-colour;
-    display: block;
-}
-
-#show-text:hover+#words {
-    display: block;
-}
-
-#words:hover {
-    display: block;
-}
-
-sup {
-    font-size: 0.8rem;
-}
