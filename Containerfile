@@ -5,7 +5,7 @@ WORKDIR /opt/${PROJECT}
 
 COPY ./ /opt/${PROJECT}
 
-RUN apt-get -y update && apt-get install -y nginx vim  
+RUN apt-get -y update && apt-get install -y nginx vim npm
 
 RUN ln -sf /opt/${PROJECT}/nginx/site.conf /etc/nginx/sites-enabled/default
 

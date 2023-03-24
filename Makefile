@@ -24,3 +24,7 @@ exec:
 		--tty \
 		${PROJECT} \
 		bash
+
+.PHONY: sass
+sass:
+	./node_modules/.bin/sass --watch sass:site/css
