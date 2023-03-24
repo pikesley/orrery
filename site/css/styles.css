@@ -1,0 +1,40 @@
+:root {
+    --diameter-sun: 100px;
+    --colour-sun: rgb(229, 181, 51);
+
+    --diameter-earth: 10px;
+    --colour-earth: rgb(38, 99, 192);
+    --distance-earth: 200px;
+}
+
+body {
+    background-color: black;
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.celestial-body {
+    position: relative;
+    aspect-ratio: 1;
+    border-radius: 50%;
+}
+
+#sun {
+    background-color: var(--colour-sun);
+    width: var(--diameter-sun);
+}
+
+#earth {
+    --offset: calc((var(--diameter-sun) / 2) - (var(--diameter-earth) / 2));
+    top: var(--offset);
+    left: var(--offset);
+    background-color: var(--colour-earth);
+    width: var(--diameter-earth);
+
+    transform: translate(
+        calc(cos(0deg) * var(--distance-earth)), 
+        calc(sin(0deg) * var(--distance-earth))
+    )
+}
