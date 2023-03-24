@@ -1,59 +1,62 @@
 @use "sass:map";
 
+$sun: (
+    radius: 1391980,
+    colour: rgb(229, 181, 51)
+);
+
+// radius is in km
+// distance is mean planet-sun distance in km^6
+// period is in earth days
 $planets: (
-    earth: (
-        // radius: 6400,
-        // distance: 150,
-        // period: 365,
-        radius: 10,
-        distance: 200,
-        period: 5,
-        colour: rgb(38, 99, 192)
-    ) ,
-    mercury: (
-        // radius: 2440,
-        // distance: 58,
-        // period: 88,
-        radius: 5,
-        distance: 75,
-        period: 1,
-        colour: rgb(183, 83, 206)
-    )
+    earth: (radius: 6400,
+        distance: 150,
+        period: 365,
+        colour: rgb(38, 99, 192)),
+    mercury: (radius: 2440,
+        distance: 58,
+        period: 88,
+        colour: rgb(183, 83, 206))
 );
 
 $scale-factors: (
-    radius: 640
+    sun: 50000,
+    radius: 640,
+    distance: 1,
+    period: 36,
 );
 
-@each $planet, $values in $planets {
-    ##{$planet} {
-        --offset: calc((var(--diameter-sun) / 2) - #{map.get($values, "radius")}px);
-        top: var(--offset);
-        left: var(--offset);
+$scaled-sun: calc(map.get($sun, "radius") / map.get($scale-factors, "sun"));
+@each $planet,
+$values in $planets {
+    $scaled-radius: calc(map.get($values, "radius") / map.get($scale-factors, "radius"));
+    $scaled-distance: calc(map.get($values, "distance") / map.get($scale-factors, "distance"));
+    $scaled-period: calc(map.get($values, "period") / map.get($scale-factors, "period"));
 
+    ##{$planet} {
+        $offset: calc($scaled-sun - $scaled-radius);
+
+        top: $offset + px;
+        left: $offset + px;
+
+        width: calc($scaled-radius * 2) + px;
         background-color: #{map.get($values, "colour")};
-        width: calc(2 * #{map.get($values, "radius") + px});
-    
-        transform: translate(calc(cos(0deg) * #{map.get($values, "distance")}),
-                calc(sin(0deg) * #{map.get($values, "distance")}));
-    
-        animation: rotate-#{$planet} #{map.get($values, "period")}s linear infinite;
+
+        transform: translate(calc(cos(0deg) * #{$scaled-distance + px}),
+            calc(sin(0deg) * #{$scaled-distance + px}));
+
+        animation: rotate-#{$planet} #{$scaled-period}s linear infinite;
     }
 
     @keyframes rotate-#{$planet} {
         0% {
-            transform: rotate(0deg) translateY(#{map.get($values, "distance") + px})  rotate(0deg);
+            transform: rotate(0deg) translateX(#{$scaled-distance + px}) rotate(0deg);
         }
-    
+
         100% {
-            transform: rotate(-360deg) translateY(#{map.get($values, "distance") + px}) rotate(360deg);
+            transform: rotate(-360deg) translateX(#{$scaled-distance + px}) rotate(360deg);
         }
     }
-}
-
-:root {
-    --diameter-sun: 100px;
-    --colour-sun: rgb(229, 181, 51);
 }
 
 body {
@@ -71,7 +74,7 @@ body {
 }
 
 #sun {
-    background-color: var(--colour-sun);
-    width: var(--diameter-sun);
+    background-color: map.get($sun, "colour");
+    width: calc($scaled-sun * 2) + px;
     position: relative;
 }

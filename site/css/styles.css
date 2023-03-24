@@ -1,44 +1,37 @@
 #earth {
-  --offset: calc((var(--diameter-sun) / 2) - 10px);
-  top: var(--offset);
-  left: var(--offset);
+  top: 17.8396px;
+  left: 17.8396px;
+  width: 20px;
   background-color: rgb(38, 99, 192);
-  width: calc(2 * 10px);
-  transform: translate(calc(cos(0deg) * 200), calc(sin(0deg) * 200));
-  animation: rotate-earth 5s linear infinite;
+  transform: translate(calc(cos(0deg) * 150px), calc(sin(0deg) * 150px));
+  animation: rotate-earth 10.1388888889s linear infinite;
 }
 
 @keyframes rotate-earth {
   0% {
-    transform: rotate(0deg) translateY(200px) rotate(0deg);
+    transform: rotate(0deg) translateX(150px) rotate(0deg);
   }
   100% {
-    transform: rotate(-360deg) translateY(200px) rotate(360deg);
+    transform: rotate(-360deg) translateX(150px) rotate(360deg);
   }
 }
 #mercury {
-  --offset: calc((var(--diameter-sun) / 2) - 5px);
-  top: var(--offset);
-  left: var(--offset);
+  top: 24.0271px;
+  left: 24.0271px;
+  width: 7.625px;
   background-color: rgb(183, 83, 206);
-  width: calc(2 * 5px);
-  transform: translate(calc(cos(0deg) * 75), calc(sin(0deg) * 75));
-  animation: rotate-mercury 1s linear infinite;
+  transform: translate(calc(cos(0deg) * 58px), calc(sin(0deg) * 58px));
+  animation: rotate-mercury 2.4444444444s linear infinite;
 }
 
 @keyframes rotate-mercury {
   0% {
-    transform: rotate(0deg) translateY(75px) rotate(0deg);
+    transform: rotate(0deg) translateX(58px) rotate(0deg);
   }
   100% {
-    transform: rotate(-360deg) translateY(75px) rotate(360deg);
+    transform: rotate(-360deg) translateX(58px) rotate(360deg);
   }
 }
-:root {
-  --diameter-sun: 100px;
-  --colour-sun: rgb(229, 181, 51);
-}
-
 body {
   background-color: black;
   display: grid;
@@ -54,8 +47,8 @@ body {
 }
 
 #sun {
-  background-color: var(--colour-sun);
-  width: var(--diameter-sun);
+  background-color: rgb(229, 181, 51);
+  width: 55.6792px;
   position: relative;
 }
 
