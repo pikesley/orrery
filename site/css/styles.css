@@ -10,7 +10,6 @@
   border-color: rgb(54, 156, 156);
   border-style: solid;
   border-width: 0.1vw;
-  font-family: "Montserrat";
   color: rgb(54, 156, 156);
   background-color: black;
   opacity: 0.7;
@@ -69,6 +68,7 @@ body {
   place-items: center;
   min-height: 100vh;
   overflow: hidden;
+  font-family: "Montserrat";
 }
 
 .celestial-body {
@@ -100,6 +100,23 @@ body {
     transform: rotate(-360deg) translateX(0.58vw) rotate(360deg);
   }
 }
+#mercury::after {
+  content: "mercury";
+  background-color: rgb(183, 83, 206);
+  color: black;
+  position: absolute;
+  left: 100%;
+  padding: 0.2rem;
+  border-radius: 0.2rem;
+  font-size: 0.8rem;
+  border: solid 1px black;
+  display: none;
+}
+
+#mercury:hover::after {
+  display: block;
+}
+
 #venus {
   top: 0.2911361905vw;
   left: 0.2911361905vw;
@@ -117,6 +134,23 @@ body {
     transform: rotate(-360deg) translateX(1.08vw) rotate(360deg);
   }
 }
+#venus::after {
+  content: "venus";
+  background-color: rgb(173, 227, 140);
+  color: black;
+  position: absolute;
+  left: 100%;
+  padding: 0.2rem;
+  border-radius: 0.2rem;
+  font-size: 0.8rem;
+  border: solid 1px black;
+  display: none;
+}
+
+#venus:hover::after {
+  display: block;
+}
+
 #earth {
   top: 0.2811361905vw;
   left: 0.2811361905vw;
@@ -134,6 +168,23 @@ body {
     transform: rotate(-360deg) translateX(1.5vw) rotate(360deg);
   }
 }
+#earth::after {
+  content: "earth";
+  background-color: rgb(38, 99, 192);
+  color: black;
+  position: absolute;
+  left: 100%;
+  padding: 0.2rem;
+  border-radius: 0.2rem;
+  font-size: 0.8rem;
+  border: solid 1px black;
+  display: none;
+}
+
+#earth:hover::after {
+  display: block;
+}
+
 #mars {
   top: 0.3668504762vw;
   left: 0.3668504762vw;
@@ -151,6 +202,23 @@ body {
     transform: rotate(-360deg) translateX(2.28vw) rotate(360deg);
   }
 }
+#mars::after {
+  content: "mars";
+  background-color: rgb(141, 21, 21);
+  color: black;
+  position: absolute;
+  left: 100%;
+  padding: 0.2rem;
+  border-radius: 0.2rem;
+  font-size: 0.8rem;
+  border: solid 1px black;
+  display: none;
+}
+
+#mars:hover::after {
+  display: block;
+}
+
 #jupiter {
   top: -1.5645780952vw;
   left: -1.5645780952vw;
@@ -168,6 +236,23 @@ body {
     transform: rotate(-360deg) translateX(7.78vw) rotate(360deg);
   }
 }
+#jupiter::after {
+  content: "jupiter";
+  background-color: rgb(187, 122, 58);
+  color: black;
+  position: absolute;
+  left: 100%;
+  padding: 0.2rem;
+  border-radius: 0.2rem;
+  font-size: 0.8rem;
+  border: solid 1px black;
+  display: none;
+}
+
+#jupiter:hover::after {
+  display: block;
+}
+
 #saturn {
   top: -1.250292381vw;
   left: -1.250292381vw;
@@ -185,6 +270,23 @@ body {
     transform: rotate(-360deg) translateX(14.3vw) rotate(360deg);
   }
 }
+#saturn::after {
+  content: "saturn";
+  background-color: rgb(187, 219, 58);
+  color: black;
+  position: absolute;
+  left: 100%;
+  padding: 0.2rem;
+  border-radius: 0.2rem;
+  font-size: 0.8rem;
+  border: solid 1px black;
+  display: none;
+}
+
+#saturn:hover::after {
+  display: block;
+}
+
 #uranus {
   top: -0.2760066667vw;
   left: -0.2760066667vw;
@@ -202,6 +304,23 @@ body {
     transform: rotate(-360deg) translateX(28.7vw) rotate(360deg);
   }
 }
+#uranus::after {
+  content: "uranus";
+  background-color: rgb(54, 156, 156);
+  color: black;
+  position: absolute;
+  left: 100%;
+  padding: 0.2rem;
+  border-radius: 0.2rem;
+  font-size: 0.8rem;
+  border: solid 1px black;
+  display: none;
+}
+
+#uranus:hover::after {
+  display: block;
+}
+
 #neptune {
   top: -0.2431495238vw;
   left: -0.2431495238vw;
@@ -218,6 +337,22 @@ body {
   100% {
     transform: rotate(-360deg) translateX(45vw) rotate(360deg);
   }
+}
+#neptune::after {
+  content: "neptune";
+  background-color: rgb(196, 196, 196);
+  color: black;
+  position: absolute;
+  left: 100%;
+  padding: 0.2rem;
+  border-radius: 0.2rem;
+  font-size: 0.8rem;
+  border: solid 1px black;
+  display: none;
+}
+
+#neptune:hover::after {
+  display: block;
 }
 
 /*# sourceMappingURL=styles.css.map */
