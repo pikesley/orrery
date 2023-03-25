@@ -21,7 +21,6 @@ $text-colour: map.get($planets, uranus, "colour");
     background-color: black;
     opacity: 0.7;
 
-
     display: none;
 
     h1 {
@@ -42,11 +41,16 @@ $text-colour: map.get($planets, uranus, "colour");
     tr {
         border-bottom-color: $text-colour;
         border-bottom-width: 0.1vw;
-        border-bottom-style: solid;
+        border-bottom-style: dashed;
     }
 
-    td {
-        padding-inline: 1rem;
+    td.antecedent {
+        text-align: right;
+        padding-left: 1rem;
+    }
+
+    td.antecedent::after {
+        content: ':';
     }
 
     footer {

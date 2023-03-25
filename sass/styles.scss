@@ -11,8 +11,7 @@ $scaled-sun: calc(map.get($sun, "radius") / map.get($scale-factors, "sun"));
 
 @mixin tooltip($name, $colour) {
     content: "#{$name}";
-    background-color: #{$colour};
-    color: black;
+    color: #{$colour};
     position: absolute;
     left: 100%;
     padding: 0.2rem;

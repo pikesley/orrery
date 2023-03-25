@@ -30,10 +30,14 @@
 #words tr {
   border-bottom-color: rgb(54, 156, 156);
   border-bottom-width: 0.1vw;
-  border-bottom-style: solid;
+  border-bottom-style: dashed;
 }
-#words td {
-  padding-inline: 1rem;
+#words td.antecedent {
+  text-align: right;
+  padding-left: 1rem;
+}
+#words td.antecedent::after {
+  content: ":";
 }
 #words footer {
   display: block;
@@ -102,8 +106,7 @@ body {
 }
 #mercury::after {
   content: "mercury";
-  background-color: rgb(183, 83, 206);
-  color: black;
+  color: rgb(183, 83, 206);
   position: absolute;
   left: 100%;
   padding: 0.2rem;
@@ -136,8 +139,7 @@ body {
 }
 #venus::after {
   content: "venus";
-  background-color: rgb(173, 227, 140);
-  color: black;
+  color: rgb(173, 227, 140);
   position: absolute;
   left: 100%;
   padding: 0.2rem;
@@ -170,8 +172,7 @@ body {
 }
 #earth::after {
   content: "earth";
-  background-color: rgb(38, 99, 192);
-  color: black;
+  color: rgb(38, 99, 192);
   position: absolute;
   left: 100%;
   padding: 0.2rem;
@@ -204,8 +205,7 @@ body {
 }
 #mars::after {
   content: "mars";
-  background-color: rgb(141, 21, 21);
-  color: black;
+  color: rgb(141, 21, 21);
   position: absolute;
   left: 100%;
   padding: 0.2rem;
@@ -238,8 +238,7 @@ body {
 }
 #jupiter::after {
   content: "jupiter";
-  background-color: rgb(187, 122, 58);
-  color: black;
+  color: rgb(187, 122, 58);
   position: absolute;
   left: 100%;
   padding: 0.2rem;
@@ -272,8 +271,7 @@ body {
 }
 #saturn::after {
   content: "saturn";
-  background-color: rgb(187, 219, 58);
-  color: black;
+  color: rgb(187, 219, 58);
   position: absolute;
   left: 100%;
   padding: 0.2rem;
@@ -306,8 +304,7 @@ body {
 }
 #uranus::after {
   content: "uranus";
-  background-color: rgb(54, 156, 156);
-  color: black;
+  color: rgb(54, 156, 156);
   position: absolute;
   left: 100%;
   padding: 0.2rem;
@@ -340,8 +337,7 @@ body {
 }
 #neptune::after {
   content: "neptune";
-  background-color: rgb(196, 196, 196);
-  color: black;
+  color: rgb(196, 196, 196);
   position: absolute;
   left: 100%;
   padding: 0.2rem;
