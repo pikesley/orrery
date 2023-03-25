@@ -15,9 +15,7 @@ $scaled-sun: calc(map.get($sun, "radius") / map.get($scale-factors, "sun"));
     position: absolute;
     left: 100%;
     padding: 0.2rem;
-    border-radius: 0.2rem;
     font-size: 0.8rem;
-    border: solid 1px black;
 
     display: none;
 }
