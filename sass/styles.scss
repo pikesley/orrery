@@ -1,8 +1,10 @@
 @use "sass:map";
 @import url("https://fonts.googleapis.com/css?family=Montserrat");
 @import "planets";
+@import "moons";
 @import "text";
 @import "functions";
+@import "scale-factors";
 
 $scaled-sun: calc(map.get($sun, "radius") / map.get($scale-factors, "sun"));
 
@@ -33,4 +35,13 @@ body {
 @each $planet,
 $values in $planets {
     @include orbital-mechanics($planet, $values)
+}
+
+@each $parent,
+$moon-set in $moons {
+
+    @each $moon,
+    $values in $moon-set {
+        @include orbital-mechanics($moon, $values, $parent)
+    }
 }

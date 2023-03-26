@@ -2,16 +2,26 @@
     @return calc(map.get($values, $key) / map.get($scale-factors, $key))
 }
 
-@function scale-data($values) {
+@function scale-data($values, $is-moon: null) {
     $colour: rgb(255, 255, 255);
 
     @if map-has-key($map: $values, $key: "colour") {
         $colour: #{map.get($values, "colour")}
     }
 
-    @return (radius: scale-down($values, "radius"),
-        distance: scale-down($values, "distance"),
-        period: scale-down($values, "period"),
+    $radius: scale-down($values, "radius");
+    $distance: scale-down($values, "distance");
+    $period: scale-down($values, "period");
+
+    @if $is-moon {
+        $radius: calc($radius * map.get($moon-weightings, "radius"));
+        $distance: calc($distance * map.get($moon-weightings, "distance"));
+        $period: calc($period * map.get($moon-weightings, "period"))
+    }
+
+    @return (radius: $radius,
+        distance: $distance,
+        period: $period,
         colour: $colour)
 }
 
@@ -32,27 +42,33 @@
     background-color: #{map.get($data, "colour")};
 }
 
-@mixin orbit($data) {
+@mixin orbit($data, $additional-radius) {
     $distance: map.get($data, "distance");
-
     0% {
-        transform: rotate(0deg) translateX(#{$distance} + vw) rotate(0deg);
+        transform: rotate(0deg) translateX(#{calc($distance + $additional-radius)} + vw) rotate(0deg);
     }
 
     100% {
-        transform: rotate(-360deg) translateX(#{$distance + vw}) rotate(360deg);
+        transform: rotate(-360deg) translateX(#{calc($distance + $additional-radius)} + vw) rotate(360deg);
     }
 }
 
-@mixin orbital-mechanics($orbiter, $values) {
-    $data: scale-data($values);
+@mixin orbital-mechanics($orbiter, $values, $parent: null) {
+    $data: scale-data($values, $parent);
+
+    $additional-radius: 0;
+
+    @if $parent {
+        $additional-radius: calc(map.get(scale-data(map.get($planets, $parent)), "radius") + map.get($moon-weightings, "fudge"));
+    }
+
 
     ##{$orbiter} {
         @include celestial-body($orbiter, $data)
     }
 
     @keyframes orbit-#{$orbiter} {
-        @include orbit($data)
+        @include orbit($data, $additional-radius)
     }
 
     ##{$orbiter}::after {
@@ -62,4 +78,5 @@
     ##{$orbiter}:hover::after {
         display: block;
     }
+
 }
