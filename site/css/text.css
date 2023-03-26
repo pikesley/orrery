@@ -1,17 +1,106 @@
-/* Error: There is no module with the namespace "map".
- *   ,
- * 3 | $text-colour: map.get($planets, uranus, "colour");
- *   |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
- *   '
- *   sass/text.scss 3:15  root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
+html:has(#show-names:hover) *::after {
   display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: 'Error: There is no module with the namespace "map".\a   \2577 \a 3 \2502  $text-colour: map.get($planets, uranus, "colour");\a   \2502                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\a   \2575 \a   sass/text.scss 3:15  root stylesheet';
 }
+
+#words {
+  scrollbar-color: rgb(54, 156, 156) black;
+  z-index: 10;
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  padding: 1rem;
+  max-width: 80%;
+  max-height: 90%;
+  overflow: auto;
+  border-color: rgb(54, 156, 156);
+  border-style: solid;
+  border-width: 0.1vw;
+  color: rgb(54, 156, 156);
+  background-color: black;
+  opacity: 0.7;
+  display: none;
+}
+#words::-webkit-scrollbar {
+  width: 0.5vw;
+  height: 0.5vw;
+}
+#words::-webkit-scrollbar-thumb {
+  background: rgb(54, 156, 156);
+}
+#words::-webkit-scrollbar-track {
+  background: black;
+}
+#words h1 {
+  margin-top: 0;
+}
+#words a {
+  color: rgb(187, 122, 58);
+  text-decoration: none;
+}
+#words table {
+  margin: 1rem;
+  border-collapse: collapse;
+  margin-inline: auto;
+}
+#words tr {
+  border-bottom-color: rgb(54, 156, 156);
+  border-bottom-width: 0.1vw;
+  border-bottom-style: dashed;
+}
+#words td {
+  padding-inline: 1rem;
+}
+#words td.antecedent {
+  text-align: right;
+  padding-left: 1rem;
+}
+#words td.antecedent::after {
+  content: ":";
+}
+#words td.consequent {
+  padding-left: 0;
+}
+#words footer {
+  display: block;
+  text-align: center;
+  width: 100%;
+  font-size: 0.8rem;
+}
+#words ol.notes {
+  font-size: 0.8rem;
+  margin-left: 2rem;
+}
+
+#show-text {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  color: rgb(54, 156, 156);
+  display: block;
+}
+
+html:has(#show-text:hover) #words {
+  display: block;
+}
+
+html:has(#words:hover) #words {
+  display: block;
+}
+
+html:has(#words:hover) #show-text {
+  display: none;
+}
+
+sup {
+  font-size: 0.8rem;
+}
+
+#show-names {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  color: rgb(54, 156, 156);
+  display: block;
+}
+
+/*# sourceMappingURL=text.css.map */

@@ -1,3 +1,5 @@
+@use "sass:map";
+@import "planets";
 @import "functions";
 
 $text-colour: map.get($planets, uranus, "colour");
