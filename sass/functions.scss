@@ -75,11 +75,6 @@
     ##{$orbiter}::after {
         @include tooltip($orbiter, $data)
     }
-
-    ##{$orbiter}:hover::after {
-        display: block;
-    }
-
 }
 
 html:has(#show-names:hover) *::after {

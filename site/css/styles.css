@@ -5,6 +5,7 @@ html:has(#show-names:hover) *::after {
 
 #words {
   scrollbar-color: rgb(54, 156, 156) black;
+  z-index: 10;
   position: fixed;
   top: 1rem;
   left: 1rem;
@@ -83,8 +84,12 @@ html:has(#show-text:hover) #words {
   display: block;
 }
 
-#words:hover {
+html:has(#words:hover) #words {
   display: block;
+}
+
+html:has(#words:hover) #show-text {
+  display: none;
 }
 
 sup {
@@ -150,10 +155,6 @@ body {
   display: none;
 }
 
-#mercury:hover::after {
-  display: block;
-}
-
 #venus {
   width: 0.242vw;
   animation: orbit-venus 2.25s linear infinite;
@@ -176,10 +177,6 @@ body {
   padding: 0.2rem;
   font-size: 0.8rem;
   display: none;
-}
-
-#venus:hover::after {
-  display: block;
 }
 
 #earth {
@@ -206,10 +203,6 @@ body {
   display: none;
 }
 
-#earth:hover::after {
-  display: block;
-}
-
 #mars {
   width: 0.136vw;
   animation: orbit-mars 6.87s linear infinite;
@@ -232,10 +225,6 @@ body {
   padding: 0.2rem;
   font-size: 0.8rem;
   display: none;
-}
-
-#mars:hover::after {
-  display: block;
 }
 
 #jupiter {
@@ -262,10 +251,6 @@ body {
   display: none;
 }
 
-#jupiter:hover::after {
-  display: block;
-}
-
 #saturn {
   width: 2.4vw;
   animation: orbit-saturn 107.59s linear infinite;
@@ -288,10 +273,6 @@ body {
   padding: 0.2rem;
   font-size: 0.8rem;
   display: none;
-}
-
-#saturn:hover::after {
-  display: block;
 }
 
 #uranus {
@@ -318,10 +299,6 @@ body {
   display: none;
 }
 
-#uranus:hover::after {
-  display: block;
-}
-
 #neptune {
   width: 0.99vw;
   animation: orbit-neptune 601.9s linear infinite;
@@ -344,10 +321,6 @@ body {
   padding: 0.2rem;
   font-size: 0.8rem;
   display: none;
-}
-
-#neptune:hover::after {
-  display: block;
 }
 
 #luna {
@@ -374,10 +347,6 @@ body {
   display: none;
 }
 
-#luna:hover::after {
-  display: block;
-}
-
 #diemos {
   width: 0.00048vw;
   animation: orbit-diemos 0.6s linear infinite;
@@ -400,10 +369,6 @@ body {
   padding: 0.2rem;
   font-size: 0.8rem;
   display: none;
-}
-
-#diemos:hover::after {
-  display: block;
 }
 
 #phobos {
@@ -430,10 +395,6 @@ body {
   display: none;
 }
 
-#phobos:hover::after {
-  display: block;
-}
-
 #callisto {
   width: 0.192vw;
   animation: orbit-callisto 8.35s linear infinite;
@@ -456,10 +417,6 @@ body {
   padding: 0.2rem;
   font-size: 0.8rem;
   display: none;
-}
-
-#callisto:hover::after {
-  display: block;
 }
 
 #io {
@@ -486,10 +443,6 @@ body {
   display: none;
 }
 
-#io:hover::after {
-  display: block;
-}
-
 #europa {
   width: 0.12vw;
   animation: orbit-europa 1.75s linear infinite;
@@ -512,10 +465,6 @@ body {
   padding: 0.2rem;
   font-size: 0.8rem;
   display: none;
-}
-
-#europa:hover::after {
-  display: block;
 }
 
 #ganymede {
@@ -542,10 +491,6 @@ body {
   display: none;
 }
 
-#ganymede:hover::after {
-  display: block;
-}
-
 #enceladus {
   width: 0.02vw;
   animation: orbit-enceladus 0.685s linear infinite;
@@ -568,10 +513,6 @@ body {
   padding: 0.2rem;
   font-size: 0.8rem;
   display: none;
-}
-
-#enceladus:hover::after {
-  display: block;
 }
 
 #tethys {
@@ -598,10 +539,6 @@ body {
   display: none;
 }
 
-#tethys:hover::after {
-  display: block;
-}
-
 #dione {
   width: 0.044vw;
   animation: orbit-dione 1.37s linear infinite;
@@ -624,10 +561,6 @@ body {
   padding: 0.2rem;
   font-size: 0.8rem;
   display: none;
-}
-
-#dione:hover::after {
-  display: block;
 }
 
 #titan {
@@ -654,10 +587,6 @@ body {
   display: none;
 }
 
-#titan:hover::after {
-  display: block;
-}
-
 #iapetus {
   width: 0.056vw;
   animation: orbit-iapetus 39.5s linear infinite;
@@ -680,10 +609,6 @@ body {
   padding: 0.2rem;
   font-size: 0.8rem;
   display: none;
-}
-
-#iapetus:hover::after {
-  display: block;
 }
 
 #ariel {
@@ -710,10 +635,6 @@ body {
   display: none;
 }
 
-#ariel:hover::after {
-  display: block;
-}
-
 #oberon {
   width: 0.06vw;
   animation: orbit-oberon 6.7315s linear infinite;
@@ -736,10 +657,6 @@ body {
   padding: 0.2rem;
   font-size: 0.8rem;
   display: none;
-}
-
-#oberon:hover::after {
-  display: block;
 }
 
 #titania {
@@ -766,10 +683,6 @@ body {
   display: none;
 }
 
-#titania:hover::after {
-  display: block;
-}
-
 #proteus {
   width: 0.0336vw;
   animation: orbit-proteus 0.56s linear infinite;
@@ -794,10 +707,6 @@ body {
   display: none;
 }
 
-#proteus:hover::after {
-  display: block;
-}
-
 #triton {
   width: 0.108vw;
   animation: orbit-triton 2.9385s linear infinite;
@@ -820,10 +729,6 @@ body {
   padding: 0.2rem;
   font-size: 0.8rem;
   display: none;
-}
-
-#triton:hover::after {
-  display: block;
 }
 
 .hoverable {

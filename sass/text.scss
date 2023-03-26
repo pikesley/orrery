@@ -4,6 +4,9 @@ $text-colour: map.get($planets, uranus, "colour");
 
 #words {
     @include scrollbars;
+
+    z-index: 10;
+
     position: fixed;
     top: 1rem;
     left: 1rem;
@@ -88,8 +91,12 @@ html:has(#show-text:hover) #words {
     display: block;
 }
 
-#words:hover {
+html:has(#words:hover) #words {
     display: block;
+}
+
+html:has(#words:hover) #show-text {
+    display: none;
 }
 
 sup {
