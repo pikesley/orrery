@@ -32,21 +32,5 @@ body {
 
 @each $planet,
 $values in $planets {
-    $data: scale-data($values);
-
-    ##{$planet} {
-        @include celestial-body($planet, $data)
-    }
-
-    @keyframes orbit-#{$planet} {
-        @include orbit($data)
-    }
-
-    ##{$planet}::after {
-        @include tooltip($planet, $data)
-    }
-
-    ##{$planet}:hover::after {
-        display: block;
-    }
+    @include orbital-mechanics($planet, $values)
 }

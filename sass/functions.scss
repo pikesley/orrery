@@ -2,6 +2,13 @@
     @return calc(map.get($values, $key) / map.get($scale-factors, $key))
 }
 
+@function scale-data($values) {
+    @return (radius: scale-down($values, "radius"),
+        distance: scale-down($values, "distance"),
+        period: scale-down($values, "period"),
+        colour: #{map.get($values, "colour")})
+}
+
 @mixin tooltip($name, $data) {
     content: "#{$name}";
     color: #{map.get($data, "colour")};
@@ -31,9 +38,22 @@
     }
 }
 
-@function scale-data($values) {
-    @return (radius: scale-down($values, "radius"),
-        distance: scale-down($values, "distance"),
-        period: scale-down($values, "period"),
-        colour: #{map.get($values, "colour")})
+@mixin orbital-mechanics($orbiter, $values) {
+    $data: scale-data($values);
+
+    ##{$orbiter} {
+        @include celestial-body($orbiter, $data)
+    }
+
+    @keyframes orbit-#{$orbiter} {
+        @include orbit($data)
+    }
+
+    ##{$orbiter}::after {
+        @include tooltip($orbiter, $data)
+    }
+
+    ##{$orbiter}:hover::after {
+        display: block;
+    }
 }
