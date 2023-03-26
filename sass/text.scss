@@ -1,7 +1,9 @@
+@import "functions";
 
 $text-colour: map.get($planets, uranus, "colour");
 
 #words {
+    @include scrollbars;
     position: fixed;
     top: 1rem;
     left: 1rem;
@@ -10,7 +12,7 @@ $text-colour: map.get($planets, uranus, "colour");
 
     max-width: 80%;
     max-height: 90%;
-    overflow: auto;
+    overflow:auto;
 
     border-color: $text-colour;
     border-style: solid;
@@ -44,6 +46,10 @@ $text-colour: map.get($planets, uranus, "colour");
         border-bottom-style: dashed;
     }
 
+    td {
+        padding-inline: 1rem;
+    }
+
     td.antecedent {
         text-align: right;
         padding-left: 1rem;
@@ -53,11 +59,20 @@ $text-colour: map.get($planets, uranus, "colour");
         content: ':';
     }
 
+    td.consequent {
+        padding-left: 0;
+    }
+
     footer {
         display: block;
         text-align: center;
         width: 100%;
         font-size: 0.8rem;
+    }
+
+    aside {
+        font-size: 0.8rem;
+        margin-left: 2rem;
     }
 }
 
@@ -69,7 +84,7 @@ $text-colour: map.get($planets, uranus, "colour");
     display: block;
 }
 
-#show-text:hover+#words {
+html:has(#show-text:hover) #words {
     display: block;
 }
 
@@ -79,4 +94,12 @@ $text-colour: map.get($planets, uranus, "colour");
 
 sup {
     font-size: 0.8rem;
+}
+
+#show-names {
+    position: fixed;
+    bottom: 1rem;
+    left: 1rem;
+    color: $text-colour;
+    display: block;
 }

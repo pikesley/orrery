@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat");
+html:has(#show-names:hover) *::after {
+  display: block;
+}
+
 #words {
+  scrollbar-color: rgb(54, 156, 156) black;
   position: fixed;
   top: 1rem;
   left: 1rem;
@@ -14,6 +19,16 @@
   background-color: black;
   opacity: 0.7;
   display: none;
+}
+#words::-webkit-scrollbar {
+  width: 0.5vw;
+  height: 0.5vw;
+}
+#words::-webkit-scrollbar-thumb {
+  background: rgb(54, 156, 156);
+}
+#words::-webkit-scrollbar-track {
+  background: black;
 }
 #words h1 {
   margin-top: 0;
@@ -32,6 +47,9 @@
   border-bottom-width: 0.1vw;
   border-bottom-style: dashed;
 }
+#words td {
+  padding-inline: 1rem;
+}
 #words td.antecedent {
   text-align: right;
   padding-left: 1rem;
@@ -39,11 +57,18 @@
 #words td.antecedent::after {
   content: ":";
 }
+#words td.consequent {
+  padding-left: 0;
+}
 #words footer {
   display: block;
   text-align: center;
   width: 100%;
   font-size: 0.8rem;
+}
+#words aside {
+  font-size: 0.8rem;
+  margin-left: 2rem;
 }
 
 #show-text {
@@ -54,7 +79,7 @@
   display: block;
 }
 
-#show-text:hover + #words {
+html:has(#show-text:hover) #words {
   display: block;
 }
 
@@ -64,6 +89,18 @@
 
 sup {
   font-size: 0.8rem;
+}
+
+#show-names {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  color: rgb(54, 156, 156);
+  display: block;
+}
+
+html:has(#show-names:hover) *::after {
+  display: block;
 }
 
 body {
@@ -787,6 +824,10 @@ body {
 
 #triton:hover::after {
   display: block;
+}
+
+.hoverable {
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=styles.css.map */

@@ -44,6 +44,7 @@
 
 @mixin orbit($data, $additional-radius) {
     $distance: map.get($data, "distance");
+
     0% {
         transform: rotate(0deg) translateX(#{calc($distance + $additional-radius)} + vw) rotate(0deg);
     }
@@ -79,4 +80,31 @@
         display: block;
     }
 
+}
+
+html:has(#show-names:hover) *::after {
+    display: block
+}
+
+// https://css-tricks.com/the-current-state-of-styling-scrollbars-in-css/
+@mixin scrollbars($size: 0.5vw,
+    $foreground-color: map.get($planets, uranus, "colour"),
+    $background-color: black) {
+
+    // For Chrome & Safari
+    &::-webkit-scrollbar {
+        width: $size;
+        height: $size;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: $foreground-color;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: $background-color;
+    }
+
+    // Standard version (Firefox only for now)
+    scrollbar-color: $foreground-color $background-color;
 }
