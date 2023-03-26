@@ -1,3 +1,5 @@
+@use "sass:map";
+
 @function scale-down($values, $key) {
     @return calc(map.get($values, $key) / map.get($scale-factors, $key))
 }
@@ -19,10 +21,16 @@
         $period: calc($period * map.get($moon-weightings, "period"))
     }
 
+    $retrograde: false;
+    @if map-has-key($values, "retrograde") {
+        $retrograde: map.get($values, "retrograde")
+    }
+
     @return (radius: $radius,
         distance: $distance,
         period: $period,
-        colour: $colour)
+        colour: $colour,
+        retrograde: $retrograde)
 }
 
 @mixin tooltip($name, $data) {
@@ -44,14 +52,22 @@
 
 @mixin orbit($data, $additional-radius) {
     $distance: map.get($data, "distance");
+    $first-angle: -360;
+    $second-angle: 360;
+
+    @if map.get($data, "retrograde") {
+        $first-angle: 360;
+        $second-angle: -360;
+    }
 
     0% {
         transform: rotate(0deg) translateX(#{calc($distance + $additional-radius)} + vw) rotate(0deg);
     }
 
     100% {
-        transform: rotate(-360deg) translateX(#{calc($distance + $additional-radius)} + vw) rotate(360deg);
-    }
+        transform: rotate(#{$first-angle}deg) translateX(#{calc($distance + $additional-radius)} + vw) 
+        rotate(#{$second-angle}deg);
+}
 }
 
 @mixin orbital-mechanics($orbiter, $values, $parent: null) {

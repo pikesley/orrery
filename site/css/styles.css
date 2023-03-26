@@ -622,7 +622,7 @@ body {
     transform: rotate(0deg) translateX(1.018955vw) rotate(0deg);
   }
   100% {
-    transform: rotate(-360deg) translateX(1.018955vw) rotate(360deg);
+    transform: rotate(360deg) translateX(1.018955vw) rotate(-360deg);
   }
 }
 #ariel::after {
@@ -646,7 +646,7 @@ body {
     transform: rotate(0deg) translateX(1.02091vw) rotate(0deg);
   }
   100% {
-    transform: rotate(-360deg) translateX(1.02091vw) rotate(360deg);
+    transform: rotate(360deg) translateX(1.02091vw) rotate(-360deg);
   }
 }
 #oberon::after {
@@ -670,7 +670,7 @@ body {
     transform: rotate(0deg) translateX(1.020175vw) rotate(0deg);
   }
   100% {
-    transform: rotate(-360deg) translateX(1.020175vw) rotate(360deg);
+    transform: rotate(360deg) translateX(1.020175vw) rotate(-360deg);
   }
 }
 #titania::after {
@@ -718,7 +718,7 @@ body {
     transform: rotate(0deg) translateX(0.99677vw) rotate(0deg);
   }
   100% {
-    transform: rotate(-360deg) translateX(0.99677vw) rotate(360deg);
+    transform: rotate(360deg) translateX(0.99677vw) rotate(-360deg);
   }
 }
 #triton::after {
