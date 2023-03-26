@@ -45,12 +45,8 @@ $planets: (
     neptune: (radius: 24750,
         distance: 4500,
         period: 60190,
-        colour: rgb(196, 196, 196))
+        colour: rgb(196, 196, 196)),
+
+
 );
 
-$scale-factors: (
-    sun: 3000000,
-    radius: 35000,
-    distance: 100,
-    period: 100,
-);
