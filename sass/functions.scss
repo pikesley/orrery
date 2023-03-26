@@ -3,10 +3,16 @@
 }
 
 @function scale-data($values) {
+    $colour: rgb(255, 255, 255);
+
+    @if map-has-key($map: $values, $key: "colour") {
+        $colour: #{map.get($values, "colour")}
+    }
+
     @return (radius: scale-down($values, "radius"),
         distance: scale-down($values, "distance"),
         period: scale-down($values, "period"),
-        colour: #{map.get($values, "colour")})
+        colour: $colour)
 }
 
 @mixin tooltip($name, $data) {
