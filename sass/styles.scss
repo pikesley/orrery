@@ -45,3 +45,10 @@ $moon-set in $moons {
         @include orbital-mechanics($moon, $values, $parent)
     }
 }
+
+.hoverable {
+    cursor: pointer;
+}
+
+
+

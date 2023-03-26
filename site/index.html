@@ -35,7 +35,7 @@
         <div class="celestial-body" id="uranus">
             <div class="celestial-body" id="ariel"></div>
             <div class="celestial-body" id="oberon"></div>
-            <div class="celestial-body" id="titania"></div>    
+            <div class="celestial-body" id="titania"></div>
         </div>
         <div class="celestial-body" id="neptune">
             <div class="celestial-body" id="proteus"></div>
@@ -43,7 +43,7 @@
         </div>
     </div>
 
-    <div id="show-text">☰</div>
+    <div id="show-text" class="hoverable">☰</div>
     <div id="words">
         <h1>CSS Orrery</h1>
         <p>Inspired by watching <a href="https://www.youtube.com/watch?v=eO33Rh3GFGk">this Kevin Powell video about
@@ -52,7 +52,7 @@
                 Sass
             </a>
             here, does that still count as pure
-            CSS? There's certainly no JavaScript)</p>
+            CSS? There's certainly no JavaScript). Also, I've now refined all of the trig out of it</p>
 
         <h2>Scaling things</h2>
         <p>In order to fit this on the screen in a way that makes any kind of sense, some scaling choices have had to be
@@ -65,14 +65,14 @@
             <tr>
 
                 <td>planetary radius</td>
-                <td class="antecedent">3.5x10<sup>4</sup>km</td>
-                <td class="consequent">1vw</td>
+                <td class="antecedent">5x10<sup>4</sup>km</td>
+                <td class="consequent"><code>1vw</code><sup>[1]</sup></td>
             </tr>
             <tr>
 
-                <td>mean planet-sun distance</td>
+                <td>mean orbiter-parent distance</td>
                 <td class="antecedent">10<sup>8</sup>km</td>
-                <td class="consequent">1vw</td>
+                <td class="consequent"><code>1vw</code></td>
             </tr>
             <tr>
                 <td>orbital period</td>
@@ -80,20 +80,47 @@
                 <td class="consequent">3.65 seconds</td>
             </tr>
         </table>
+
         <p>
-            In addition, the Sun's radius is scaled by 3x10<sup>6</sup>km to 1vw, putting it completely out-of-whack
-            with the planets
+            There are some further scaling shenanigans for the moons: on top of the scalings above, we also apply a
+            weighting to each metric:
+        </p>
+        <table>
+            <tr>
+                <th>metric</th>
+                <th>weighting</th>
+            </tr>
+            <tr>
+                <td>radius</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>planet-moon distance</td>
+                <td>0.5<sup>[2]</sup></td>
+            </tr>
+            <tr>
+                <td>orbital period</td>
+                <td>50</td>
+            </tr>
+        </table>
+        <aside class="notes">
+            <p>1: <code>1vw</code> is 1% of screen-width</p>
+            <p>2: we also apply an arbitrary fudge-factor of 1 to prevent the moons just crawling along the planet's
+                edge</p>
+        </aside>
+        <p>
+            In addition, the Sun's radius is scaled by 3x10<sup>6</sup>km to <code>1vw</code>, putting it completely
+            out-of-whack
+            with everything else
         </p>
 
-        <p>Note: <code>1vw</code> is 1% of screen-width</p>
-
-        <p>If you zoom in, you can see Mercury whipping round at 19 to the dozen</p>
 
         <footer>
             <span><a href="https://sam.pikesley.org">pikesley.org</a></span> |
             <span><a href="https://github.com/pikesley/orrery">orrery on github</a></span>
         </footer>
     </div>
+    <div id="show-names" class="hoverable">🏷</div>
 </body>
 
 </html>
