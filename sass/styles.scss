@@ -2,24 +2,9 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat");
 @import "planets";
 @import "text";
+@import "functions";
 
 $scaled-sun: calc(map.get($sun, "radius") / map.get($scale-factors, "sun"));
-
-@function scale-down($values, $key) {
-    @return calc(map.get($values, $key) / map.get($scale-factors, $key))
-}
-
-@mixin tooltip($name, $colour) {
-    content: "#{$name}";
-    color: #{$colour};
-    position: absolute;
-    left: 100%;
-    padding: 0.2rem;
-    font-size: 0.8rem;
-
-    display: none;
-}
-
 
 body {
     background-color: black;
@@ -35,6 +20,8 @@ body {
     position: absolute;
     aspect-ratio: 1;
     border-radius: 50%;
+    display: grid;
+    place-items: center;
 }
 
 #sun {
@@ -45,38 +32,18 @@ body {
 
 @each $planet,
 $values in $planets {
-    $scaled-radius: scale-down($values, "radius");
-    $scaled-distance: scale-down($values, "distance");
-    $scaled-period: scale-down($values, "period");
-    $colour: #{map.get($values, "colour")};
+    $data: scale-data($values);
 
     ##{$planet} {
-        $offset: calc($scaled-sun - $scaled-radius);
-
-        top: $offset + vw;
-        left: $offset + vw;
-
-        width: calc($scaled-radius * 2) + vw;
-        background-color: $colour;
-
-        transform: translate(calc(cos(0deg) * #{$scaled-distance + vw}),
-            calc(sin(0deg) * #{$scaled-distance + vw}));
-
-        animation: orbit-#{$planet} #{$scaled-period}s linear infinite;
+        @include celestial-body($planet, $data)
     }
 
     @keyframes orbit-#{$planet} {
-        0% {
-            transform: rotate(0deg) translateX(#{$scaled-distance + vw}) rotate(0deg);
-        }
-
-        100% {
-            transform: rotate(-360deg) translateX(#{$scaled-distance + vw}) rotate(360deg);
-        }
+        @include orbit($data)
     }
 
     ##{$planet}::after {
-        @include tooltip($planet, $colour)
+        @include tooltip($planet, $data)
     }
 
     ##{$planet}:hover::after {

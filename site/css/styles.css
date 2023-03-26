@@ -79,6 +79,8 @@ body {
   position: absolute;
   aspect-ratio: 1;
   border-radius: 50%;
+  display: grid;
+  place-items: center;
 }
 
 #sun {
@@ -88,12 +90,9 @@ body {
 }
 
 #mercury {
-  top: 0.3942790476vw;
-  left: 0.3942790476vw;
   width: 0.1394285714vw;
-  background-color: rgb(183, 83, 206);
-  transform: translate(calc(cos(0deg) * 0.58vw), calc(sin(0deg) * 0.58vw));
   animation: orbit-mercury 0.88s linear infinite;
+  background-color: rgb(183, 83, 206);
 }
 
 @keyframes orbit-mercury {
@@ -119,12 +118,9 @@ body {
 }
 
 #venus {
-  top: 0.2911361905vw;
-  left: 0.2911361905vw;
   width: 0.3457142857vw;
-  background-color: rgb(173, 227, 140);
-  transform: translate(calc(cos(0deg) * 1.08vw), calc(sin(0deg) * 1.08vw));
   animation: orbit-venus 2.25s linear infinite;
+  background-color: rgb(173, 227, 140);
 }
 
 @keyframes orbit-venus {
@@ -150,12 +146,9 @@ body {
 }
 
 #earth {
-  top: 0.2811361905vw;
-  left: 0.2811361905vw;
   width: 0.3657142857vw;
-  background-color: rgb(38, 99, 192);
-  transform: translate(calc(cos(0deg) * 1.5vw), calc(sin(0deg) * 1.5vw));
   animation: orbit-earth 3.65s linear infinite;
+  background-color: rgb(38, 99, 192);
 }
 
 @keyframes orbit-earth {
@@ -181,12 +174,9 @@ body {
 }
 
 #mars {
-  top: 0.3668504762vw;
-  left: 0.3668504762vw;
   width: 0.1942857143vw;
-  background-color: rgb(141, 21, 21);
-  transform: translate(calc(cos(0deg) * 2.28vw), calc(sin(0deg) * 2.28vw));
   animation: orbit-mars 6.87s linear infinite;
+  background-color: rgb(141, 21, 21);
 }
 
 @keyframes orbit-mars {
@@ -212,12 +202,9 @@ body {
 }
 
 #jupiter {
-  top: -1.5645780952vw;
-  left: -1.5645780952vw;
   width: 4.0571428571vw;
-  background-color: rgb(187, 122, 58);
-  transform: translate(calc(cos(0deg) * 7.78vw), calc(sin(0deg) * 7.78vw));
   animation: orbit-jupiter 43.33s linear infinite;
+  background-color: rgb(187, 122, 58);
 }
 
 @keyframes orbit-jupiter {
@@ -243,12 +230,9 @@ body {
 }
 
 #saturn {
-  top: -1.250292381vw;
-  left: -1.250292381vw;
   width: 3.4285714286vw;
-  background-color: rgb(187, 219, 58);
-  transform: translate(calc(cos(0deg) * 14.3vw), calc(sin(0deg) * 14.3vw));
   animation: orbit-saturn 107.59s linear infinite;
+  background-color: rgb(187, 219, 58);
 }
 
 @keyframes orbit-saturn {
@@ -274,12 +258,9 @@ body {
 }
 
 #uranus {
-  top: -0.2760066667vw;
-  left: -0.2760066667vw;
   width: 1.48vw;
-  background-color: rgb(54, 156, 156);
-  transform: translate(calc(cos(0deg) * 28.7vw), calc(sin(0deg) * 28.7vw));
   animation: orbit-uranus 306.87s linear infinite;
+  background-color: rgb(54, 156, 156);
 }
 
 @keyframes orbit-uranus {
@@ -305,12 +286,9 @@ body {
 }
 
 #neptune {
-  top: -0.2431495238vw;
-  left: -0.2431495238vw;
   width: 1.4142857143vw;
-  background-color: rgb(196, 196, 196);
-  transform: translate(calc(cos(0deg) * 45vw), calc(sin(0deg) * 45vw));
   animation: orbit-neptune 601.9s linear infinite;
+  background-color: rgb(196, 196, 196);
 }
 
 @keyframes orbit-neptune {

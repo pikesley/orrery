@@ -1,0 +1,39 @@
+@function scale-down($values, $key) {
+    @return calc(map.get($values, $key) / map.get($scale-factors, $key))
+}
+
+@mixin tooltip($name, $data) {
+    content: "#{$name}";
+    color: #{map.get($data, "colour")};
+    position: absolute;
+    left: 100%;
+    padding: 0.2rem;
+    font-size: 0.8rem;
+
+    display: none;
+}
+
+@mixin celestial-body($name, $data) {
+    width: calc(map.get($data, "radius") * 2) + vw;
+    animation: orbit-#{$name} #{map.get($data, "period")}s linear infinite;
+    background-color: #{map.get($data, "colour")};
+}
+
+@mixin orbit($data) {
+    $distance: map.get($data, "distance");
+
+    0% {
+        transform: rotate(0deg) translateX(#{$distance} + vw) rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(-360deg) translateX(#{$distance + vw}) rotate(360deg);
+    }
+}
+
+@function scale-data($values) {
+    @return (radius: scale-down($values, "radius"),
+        distance: scale-down($values, "distance"),
+        period: scale-down($values, "period"),
+        colour: #{map.get($values, "colour")})
+}
