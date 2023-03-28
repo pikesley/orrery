@@ -1,0 +1,49 @@
+$sun: (
+  radius: 1391980,
+);
+
+// radius is in km
+// distance is mean planet-sun distance in km^6
+// period is in earth days
+$planets: (
+  mercury: (
+    radius: 2440,
+    distance: 58,
+    period: 88,
+  ),
+  venus: (
+    radius: 6050,
+    distance: 108,
+    period: 225,
+  ),
+  earth: (
+    radius: 6400,
+    distance: 150,
+    period: 365,
+  ),
+  mars: (
+    radius: 3400,
+    distance: 228,
+    period: 687,
+  ),
+  jupiter: (
+    radius: 71000,
+    distance: 778,
+    period: 4333,
+  ),
+  saturn: (
+    radius: 60000,
+    distance: 1430,
+    period: 10759,
+  ),
+  uranus: (
+    radius: 25900,
+    distance: 2870,
+    period: 30687,
+  ),
+  neptune: (
+    radius: 24750,
+    distance: 4500,
+    period: 60190,
+  ),
+);

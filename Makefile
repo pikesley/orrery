@@ -27,4 +27,14 @@ exec:
 
 .PHONY: sass
 sass:
-	./node_modules/.bin/sass --watch sass:site/css
+	./node_modules/.bin/sass \
+		--watch \
+		--no-source-map \
+		--style compressed \
+		sass:site/css
+
+pretty:
+	./node_modules/.bin/prettier \
+		--plugin prettier-plugin-css-order \
+		--order alphabetical \
+		--write .

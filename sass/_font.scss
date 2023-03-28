@@ -1,0 +1,36 @@
+$font: "Yomogi";
+
+$large: 1.2rem;
+$regular: 1rem;
+$small: 0.8rem;
+
+@import url("https://fonts.googleapis.com/css?family=#{$font}");
+
+body {
+  font-family: $font;
+  font-size: $regular;
+}
+
+#words {
+  font-size: $regular;
+
+  footer {
+    font-size: $small;
+  }
+
+  ol.notes {
+    font-size: $small;
+  }
+
+  sup {
+    font-size: $small;
+  }
+}
+
+.celestial-body::after {
+  font-size: $regular;
+}
+
+.hoverable::before {
+  font-size: $large;
+}

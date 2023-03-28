@@ -1,54 +1,52 @@
 @use "sass:map";
-@import url("https://fonts.googleapis.com/css?family=Montserrat");
-@import "planets";
-@import "moons";
-@import "text";
-@import "functions";
-@import "scale-factors";
-
-$scaled-sun: calc(map.get($sun, "radius") / map.get($scale-factors, "sun"));
+@use "data/colours";
+@use "data/planets";
+@use "data/moons";
+@use "data/scale-factors";
+@use "functions";
+@use "text";
+@use "font";
 
 body {
-    background-color: black;
-    display: grid;
-    place-items: center;
-    min-height: 100vh;
-    overflow: hidden;
-
-    font-family: "Montserrat";
+  background-color: map.get(colours.$colours, "background");
+  display: grid;
+  min-height: 100vh;
+  overflow: hidden;
+  place-items: center;
 }
 
 .celestial-body {
-    position: absolute;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
+  aspect-ratio: 1;
+  background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  position: absolute;
 }
 
+$scaled-sun: calc(
+  map.get(planets.$sun, "radius") / map.get(scale-factors.$scale-factors, "sun")
+);
 #sun {
-    background-color: map.get($sun, "colour");
-    width: calc($scaled-sun * 2) + vw;
-    position: relative;
+  background-color: map.get(colours.$colours, "sun");
+  position: relative;
+  width: calc($scaled-sun * 2) + vw;
 }
 
-@each $planet,
-$values in $planets {
-    @include orbital-mechanics($planet, $values)
-}
+@each $planet, $values in planets.$planets {
+  @include functions.orbital-mechanics($planet, $values);
 
-@each $parent,
-$moon-set in $moons {
-
-    @each $moon,
-    $values in $moon-set {
-        @include orbital-mechanics($moon, $values, $parent)
+  @if map-has-key(moons.$moons, $planet) {
+    @each $moon, $values in map.get(moons.$moons, $planet) {
+      @include functions.orbital-mechanics($moon, $values, $planet);
     }
+  }
+}
+
+html:has(#show-names:hover) *::after {
+  display: block;
 }
 
 .hoverable {
-    cursor: pointer;
+  cursor: pointer;
 }
-
-
-

@@ -1,5 +1,0 @@
-html:has(#show-names:hover) *::after {
-  display: block;
-}
-
-/*# sourceMappingURL=functions.css.map */
