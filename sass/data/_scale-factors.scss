@@ -1,0 +1,13 @@
+$scale-factors: (
+  sun: 3000000,
+  radius: 50000,
+  distance: 100,
+  period: 100,
+);
+
+$moon-weightings: (
+  radius: 2,
+  distance: 0.5,
+  period: 100,
+  fudge: 0.5,
+);

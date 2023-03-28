@@ -1,130 +1,143 @@
 <!DOCTYPE html>
-<html lang="en" class="astro-EXTXZDKE">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="stylesheet" href="/css/styles.css" />
     <title>CSS Orrery</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="celestial-body" id="sun">
-        <div class="celestial-body" id="mercury"></div>
-        <div class="celestial-body" id="venus"></div>
-        <div class="celestial-body" id="earth">
-            <div class="celestial-body" id="luna"></div>
-        </div>
-        <div class="celestial-body" id="mars">
-            <div class="celestial-body" id="diemos"></div>
-            <div class="celestial-body" id="phobos"></div>
-        </div>
-        <div class="celestial-body" id="jupiter">
-            <div class="celestial-body" id="callisto"></div>
-            <div class="celestial-body" id="europa"></div>
-            <div class="celestial-body" id="ganymede"></div>
-            <div class="celestial-body" id="io"></div>
-        </div>
-        <div class="celestial-body" id="saturn">
-            <div class="celestial-body" id="enceladus"></div>
-            <div class="celestial-body" id="tethys"></div>
-            <div class="celestial-body" id="dione"></div>
-            <div class="celestial-body" id="titan"></div>
-            <div class="celestial-body" id="iapetus"></div>
-        </div>
-        <div class="celestial-body" id="uranus">
-            <div class="celestial-body" id="ariel"></div>
-            <div class="celestial-body" id="oberon"></div>
-            <div class="celestial-body" id="titania"></div>
-        </div>
-        <div class="celestial-body" id="neptune">
-            <div class="celestial-body" id="proteus"></div>
-            <div class="celestial-body" id="triton"></div>
-        </div>
+      <div class="celestial-body" id="mercury"></div>
+      <div class="celestial-body" id="venus"></div>
+      <div class="celestial-body" id="earth">
+        <div class="celestial-body" id="luna"></div>
+      </div>
+      <div class="celestial-body" id="mars">
+        <div class="celestial-body" id="diemos"></div>
+        <div class="celestial-body" id="phobos"></div>
+      </div>
+      <div class="celestial-body" id="jupiter">
+        <div class="celestial-body" id="callisto"></div>
+        <div class="celestial-body" id="europa"></div>
+        <div class="celestial-body" id="ganymede"></div>
+        <div class="celestial-body" id="io"></div>
+      </div>
+      <div class="celestial-body" id="saturn">
+        <div class="celestial-body" id="dione"></div>
+        <div class="celestial-body" id="enceladus"></div>
+        <div class="celestial-body" id="iapetus"></div>
+        <div class="celestial-body" id="tethys"></div>
+        <div class="celestial-body" id="titan"></div>
+      </div>
+      <div class="celestial-body" id="uranus">
+        <div class="celestial-body" id="ariel"></div>
+        <div class="celestial-body" id="oberon"></div>
+        <div class="celestial-body" id="titania"></div>
+      </div>
+      <div class="celestial-body" id="neptune">
+        <div class="celestial-body" id="proteus"></div>
+        <div class="celestial-body" id="triton"></div>
+      </div>
     </div>
 
-    <div id="show-text" class="hoverable">☰</div>
+    <div id="show-text" class="hoverable">How It Works</div>
     <div id="words">
-        <h1>CSS Orrery</h1>
-        <p>Inspired by watching <a href="https://www.youtube.com/watch?v=eO33Rh3GFGk">this Kevin Powell video about
-                trigonometry in CSS</a>, I made this pure-CSS orrery. (There's <a
-                href="https://github.com/pikesley/orrery/blob/main/sass/styles.scss">
-                Sass
-            </a>
-            here, does that still count as pure
-            CSS? There's certainly no JavaScript). Also, I've now refined all of the trig out of it</p>
+      <h1>CSS Orrery</h1>
+      <p>
+        Inspired by watching
+        <a href="https://www.youtube.com/watch?v=eO33Rh3GFGk"
+          >this Kevin Powell video about trigonometry in CSS</a
+        >, I made this pure-CSS orrery. (There's
+        <a href="https://github.com/pikesley/orrery/blob/main/sass/"> Sass </a>
+        here, does that still count as pure CSS? There's certainly no
+        JavaScript). Also, I've now refined all of the trig out of it
+      </p>
 
-        <h2>Scaling things</h2>
-        <p>In order to fit this on the screen in a way that makes any kind of sense, some scaling choices have had to be
-            made:</p>
-        <table>
-            <tr>
-                <th>metric</th>
-                <th colspan="2">scaling</th>
-            </tr>
-            <tr>
+      <h2>Scaling things</h2>
+      <p>
+        In order to fit this on the screen in a way that makes any kind of
+        sense, some scaling choices have had to be made:
+      </p>
+      <table>
+        <tr>
+          <th>metric</th>
+          <th colspan="2">scaling</th>
+        </tr>
+        <tr>
+          <td>planetary radius</td>
+          <td class="antecedent">5x10<sup>4</sup>km</td>
+          <td class="consequent"><code>1vw</code><sup>[1]</sup></td>
+        </tr>
+        <tr>
+          <td>mean orbiter-parent distance</td>
+          <td class="antecedent">10<sup>8</sup>km</td>
+          <td class="consequent">
+            <code>1vw</code>
+          </td>
+        </tr>
+        <tr>
+          <td>orbital period</td>
+          <td class="antecedent">365 Earth days</td>
+          <td class="consequent">3.65 seconds</td>
+        </tr>
+      </table>
 
-                <td>planetary radius</td>
-                <td class="antecedent">5x10<sup>4</sup>km</td>
-                <td class="consequent"><code>1vw</code><sup>[1]</sup></td>
-            </tr>
-            <tr>
+      <p>
+        There are some further shenanigans for the moons<sup>[2]</sup>: on top
+        of the scalings above, we also apply a weighting to each metric:
+      </p>
+      <table>
+        <tr>
+          <th>metric</th>
+          <th>weighting</th>
+        </tr>
+        <tr>
+          <td>radius</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>planet-moon distance</td>
+          <td>0.5<sup>[3]</sup></td>
+        </tr>
+        <tr>
+          <td>orbital period</td>
+          <td>50</td>
+        </tr>
+      </table>
+      <ol class="notes">
+        <li>
+          <code>1vw</code>
+          is 1% of screen-width
+        </li>
+        <li>
+          there are, depending on who you ask and how you define the term, as
+          many as 690 moons in the solar system, most of them way too tiny to
+          appear on this without completely hosing the scaling for everything
+          else. I have included a selection of 17 largish ones here
+        </li>
+        <li>
+          an arbitrary fudge-factor of 0.5 is also applied here, to prevent the
+          moons just crawling along the planet's edge
+        </li>
+      </ol>
+      <p>
+        In addition, the Sun's radius is scaled by 3x10<sup>6</sup>km to
+        <code>1vw</code>, putting it completely out-of-whack with everything
+        else
+      </p>
 
-                <td>mean orbiter-parent distance</td>
-                <td class="antecedent">10<sup>8</sup>km</td>
-                <td class="consequent"><code>1vw</code></td>
-            </tr>
-            <tr>
-                <td>orbital period</td>
-                <td class="antecedent">365 Earth days</td>
-                <td class="consequent">3.65 seconds</td>
-            </tr>
-        </table>
-
-        <p>
-            There are some further shenanigans for the moons<sup>[2]</sup>: on top of the scalings above, we also apply
-            a
-            weighting to each metric:
-        </p>
-        <table>
-            <tr>
-                <th>metric</th>
-                <th>weighting</th>
-            </tr>
-            <tr>
-                <td>radius</td>
-                <td>2</td>
-            </tr>
-            <tr>
-                <td>planet-moon distance</td>
-                <td>0.5<sup>[3]</sup></td>
-            </tr>
-            <tr>
-                <td>orbital period</td>
-                <td>50</td>
-            </tr>
-        </table>
-        <ol class="notes">
-            <li><code>1vw</code> is 1% of screen-width</li>
-            <li>there are, depending on who you ask and how you define the term, as many as 690 moons in the solar
-                system, most of them way too tiny to appear on this without completely hosing the scaling for everything
-                else. I have included a selection of 17 largish ones here</li>
-            <li>an arbitrary fudge-factor of 1 is also applied here, to prevent the moons just crawling along the
-                planet's
-                edge</li>
-            </ol>
-        <p>
-            In addition, the Sun's radius is scaled by 3x10<sup>6</sup>km to <code>1vw</code>, putting it completely
-            out-of-whack
-            with everything else
-        </p>
-
-        <footer>
-            <span><a href="https://sam.pikesley.org">pikesley.org</a></span> |
-            <span><a href="https://github.com/pikesley/orrery">orrery on github</a></span>
-        </footer>
+      <footer>
+        <span><a href="https://sam.pikesley.org">pikesley.org</a></span>
+        |
+        <span
+          ><a href="https://github.com/pikesley/orrery"
+            >orrery on github</a
+          ></span
+        >
+      </footer>
     </div>
-    <div id="show-names" class="hoverable">🏷</div>
-</body>
-
+    <div id="show-names" class="hoverable">Show Labels</div>
+  </body>
 </html>

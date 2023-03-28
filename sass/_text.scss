@@ -1,0 +1,140 @@
+@use "sass:map";
+@use "data/colours";
+
+$colour: map.get(colours.$colours, "uranus");
+$background-colour: map.get(colours.$colours, "background");
+
+// https://css-tricks.com/the-current-state-of-styling-scrollbars-in-css/
+@mixin scrollbars($size: 0.5vw) {
+  // Standard version (Firefox only for now)
+  scrollbar-color: $colour $background-colour;
+  // For Chrome & Safari
+  &::-webkit-scrollbar {
+    height: $size;
+    width: $size;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $colour;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $background-colour;
+  }
+}
+
+#words {
+  @include scrollbars;
+
+  background-color: $background-colour;
+
+  border-color: $colour;
+  border-style: double;
+  border-width: 5px;
+
+  color: $colour;
+
+  display: none;
+  left: 1rem;
+  max-height: 90%;
+
+  max-width: 80%;
+  opacity: 0.7;
+  overflow: auto;
+
+  padding: 1rem;
+
+  position: fixed;
+  top: 1rem;
+
+  z-index: 10;
+
+  h1 {
+    margin-top: 0;
+  }
+
+  a {
+    color: map.get(colours.$colours, "jupiter");
+    text-decoration: none;
+  }
+
+  table {
+    border-collapse: collapse;
+    margin: 1rem;
+    margin-inline: auto;
+  }
+
+  tr {
+    border-bottom-color: $colour;
+    border-bottom-style: dashed;
+    border-bottom-width: 0.1vw;
+  }
+
+  td {
+    padding-inline: 1rem;
+  }
+
+  td.antecedent {
+    padding-left: 1rem;
+    text-align: right;
+  }
+
+  td.antecedent::after {
+    content: ":";
+  }
+
+  td.consequent {
+    padding-left: 0;
+  }
+
+  footer {
+    display: block;
+    text-align: center;
+    width: 100%;
+  }
+
+  ol.notes {
+    margin-left: 2rem;
+  }
+}
+
+#show-text {
+  color: $colour;
+  display: block;
+  left: 1rem;
+  position: fixed;
+  top: 1rem;
+}
+
+#show-text::before {
+  content: "\1F4E1";
+}
+
+#show-names {
+  bottom: 1rem;
+  color: $colour;
+  display: block;
+  left: 1rem;
+  position: fixed;
+}
+
+#show-names::before {
+  content: "\1F52D";
+}
+
+.hoverable::before {
+  font-size: 1.2rem;
+  margin-right: 1rem;
+}
+
+html:has(#show-text:hover) #words {
+  display: block;
+}
+
+html:has(#words:hover) #words {
+  display: block;
+}
+
+html:has(#words:hover) #show-text {
+  display: none;
+}

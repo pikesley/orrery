@@ -1,0 +1,101 @@
+@use "sass:map";
+@use "data/colours";
+@use "data/planets";
+@use "data/scale-factors";
+
+@function scale-down($values, $key) {
+  @return calc(
+    map.get($values, $key) / map.get(scale-factors.$scale-factors, $key)
+  );
+}
+
+@function scale-data($orbiter, $values, $is-moon: null) {
+  $colour: if(
+    map-has-key(colours.$colours, $orbiter),
+    map.get(colours.$colours, $orbiter),
+    map.get(colours.$colours, "default")
+  );
+
+  $radius: scale-down($values, "radius");
+  $distance: scale-down($values, "distance");
+  $period: scale-down($values, "period");
+
+  @if $is-moon {
+    $radius: calc($radius * map.get(scale-factors.$moon-weightings, "radius"));
+    $distance: calc(
+      $distance * map.get(scale-factors.$moon-weightings, "distance")
+    );
+    $period: calc($period * map.get(scale-factors.$moon-weightings, "period"));
+  }
+
+  $retrograde: if(
+    map-has-key($values, "retrograde"),
+    map.get($values, "retrograde"),
+    false
+  );
+
+  @return (
+    radius: $radius,
+    distance: $distance,
+    period: $period,
+    colour: $colour,
+    retrograde: $retrograde
+  );
+}
+
+@mixin tooltip($name, $data) {
+  color: #{map.get($data, "colour")};
+  content: "#{$name}";
+  display: none;
+  left: 100%;
+  padding: 0.2rem;
+  position: absolute;
+}
+
+@mixin celestial-body($name, $data) {
+  animation: orbit-#{$name} #{map.get($data, "period")}s linear infinite;
+  background-color: #{map.get($data, "colour")};
+  width: calc(map.get($data, "radius") * 2) + vw;
+}
+
+@mixin orbit($data, $additional-radius) {
+  $distance: map.get($data, "distance");
+  $sign: if(map.get($data, "retrograde"), "+", "-");
+
+  from {
+    transform: rotate(0deg)
+      translateX(#{calc($distance + $additional-radius)} + vw);
+  }
+
+  to {
+    transform: rotate(#{$sign}360deg)
+      translateX(#{calc($distance + $additional-radius)} + vw);
+  }
+}
+
+@mixin orbital-mechanics($orbiter, $values, $parent: null) {
+  $data: scale-data($orbiter, $values, $parent);
+
+  $additional-radius: if(
+    $parent,
+    calc(
+      map.get(
+          scale-data($orbiter, map.get(planets.$planets, $parent)),
+          "radius"
+        ) + map.get(scale-factors.$moon-weightings, "fudge")
+    ),
+    0
+  );
+
+  ##{$orbiter} {
+    @include celestial-body($orbiter, $data);
+  }
+
+  @keyframes orbit-#{$orbiter} {
+    @include orbit($data, $additional-radius);
+  }
+
+  ##{$orbiter}::after {
+    @include tooltip($orbiter, $data);
+  }
+}

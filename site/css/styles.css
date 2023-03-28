@@ -1,59 +1,55 @@
-@import url("https://fonts.googleapis.com/css?family=Montserrat");
-html:has(#show-names:hover) *::after {
-  display: block;
-}
-
+﻿@import "https://fonts.googleapis.com/css?family=Yomogi";
 #words {
-  scrollbar-color: rgb(54, 156, 156) black;
-  z-index: 10;
-  position: fixed;
-  top: 1rem;
-  left: 1rem;
-  padding: 1rem;
-  max-width: 80%;
-  max-height: 90%;
-  overflow: auto;
-  border-color: rgb(54, 156, 156);
-  border-style: solid;
-  border-width: 0.1vw;
-  color: rgb(54, 156, 156);
-  background-color: black;
-  opacity: 0.7;
+  background-color: #080f43;
+  border-color: #369c9c;
+  border-style: double;
+  border-width: 5px;
+  color: #369c9c;
   display: none;
+  left: 1rem;
+  max-height: 90%;
+  max-width: 80%;
+  opacity: 0.7;
+  overflow: auto;
+  padding: 1rem;
+  position: fixed;
+  scrollbar-color: #369c9c #080f43;
+  top: 1rem;
+  z-index: 10;
 }
 #words::-webkit-scrollbar {
-  width: 0.5vw;
   height: 0.5vw;
+  width: 0.5vw;
 }
 #words::-webkit-scrollbar-thumb {
-  background: rgb(54, 156, 156);
+  background: #369c9c;
 }
 #words::-webkit-scrollbar-track {
-  background: black;
+  background: #080f43;
 }
 #words h1 {
   margin-top: 0;
 }
 #words a {
-  color: rgb(187, 122, 58);
+  color: #bb7a3a;
   text-decoration: none;
 }
 #words table {
-  margin: 1rem;
   border-collapse: collapse;
+  margin: 1rem;
   margin-inline: auto;
 }
 #words tr {
-  border-bottom-color: rgb(54, 156, 156);
-  border-bottom-width: 0.1vw;
+  border-bottom-color: #369c9c;
   border-bottom-style: dashed;
+  border-bottom-width: 0.1vw;
 }
 #words td {
   padding-inline: 1rem;
 }
 #words td.antecedent {
-  text-align: right;
   padding-left: 1rem;
+  text-align: right;
 }
 #words td.antecedent::after {
   content: ":";
@@ -65,674 +61,613 @@ html:has(#show-names:hover) *::after {
   display: block;
   text-align: center;
   width: 100%;
+}
+#words ol.notes {
+  margin-left: 2rem;
+}
+#show-text {
+  color: #369c9c;
+  display: block;
+  left: 1rem;
+  position: fixed;
+  top: 1rem;
+}
+#show-text::before {
+  content: "📡";
+}
+#show-names {
+  bottom: 1rem;
+  color: #369c9c;
+  display: block;
+  left: 1rem;
+  position: fixed;
+}
+#show-names::before {
+  content: "🔭";
+}
+.hoverable::before {
+  font-size: 1.2rem;
+  margin-right: 1rem;
+}
+html:has(#show-text:hover) #words {
+  display: block;
+}
+html:has(#words:hover) #words {
+  display: block;
+}
+html:has(#words:hover) #show-text {
+  display: none;
+}
+body {
+  font-family: "Yomogi";
+  font-size: 1rem;
+}
+#words {
+  font-size: 1rem;
+}
+#words footer {
   font-size: 0.8rem;
 }
 #words ol.notes {
   font-size: 0.8rem;
-  margin-left: 2rem;
 }
-
-#show-text {
-  position: fixed;
-  top: 1rem;
-  left: 1rem;
-  color: rgb(54, 156, 156);
-  display: block;
-}
-
-html:has(#show-text:hover) #words {
-  display: block;
-}
-
-html:has(#words:hover) #words {
-  display: block;
-}
-
-html:has(#words:hover) #show-text {
-  display: none;
-}
-
-sup {
+#words sup {
   font-size: 0.8rem;
 }
-
-#show-names {
-  position: fixed;
-  bottom: 1rem;
-  left: 1rem;
-  color: rgb(54, 156, 156);
-  display: block;
+.celestial-body::after {
+  font-size: 1rem;
 }
-
-html:has(#show-names:hover) *::after {
-  display: block;
+.hoverable::before {
+  font-size: 1.2rem;
 }
-
 body {
-  background-color: black;
+  background-color: #080f43;
   display: grid;
-  place-items: center;
   min-height: 100vh;
   overflow: hidden;
-  font-family: "Montserrat";
+  place-items: center;
 }
-
 .celestial-body {
-  position: absolute;
   aspect-ratio: 1;
+  background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
   border-radius: 50%;
   display: grid;
   place-items: center;
+  position: absolute;
 }
-
 #sun {
-  background-color: rgb(229, 181, 51);
-  width: 0.9279866667vw;
+  background-color: #e5b533;
   position: relative;
+  width: 0.9279866667vw;
 }
-
 #mercury {
-  width: 0.0976vw;
   animation: orbit-mercury 0.88s linear infinite;
   background-color: rgb(183, 83, 206);
+  width: 0.0976vw;
 }
-
 @keyframes orbit-mercury {
-  0% {
-    transform: rotate(0deg) translateX(0.58vw) rotate(0deg);
+  from {
+    transform: rotate(0deg) translateX(0.58vw);
   }
-  100% {
-    transform: rotate(-360deg) translateX(0.58vw) rotate(360deg);
+  to {
+    transform: rotate(-360deg) translateX(0.58vw);
   }
 }
 #mercury::after {
-  content: "mercury";
   color: rgb(183, 83, 206);
-  position: absolute;
+  content: "mercury";
+  display: none;
   left: 100%;
   padding: 0.2rem;
-  font-size: 0.8rem;
-  display: none;
+  position: absolute;
 }
-
 #venus {
-  width: 0.242vw;
   animation: orbit-venus 2.25s linear infinite;
   background-color: rgb(173, 227, 140);
+  width: 0.242vw;
 }
-
 @keyframes orbit-venus {
-  0% {
-    transform: rotate(0deg) translateX(1.08vw) rotate(0deg);
+  from {
+    transform: rotate(0deg) translateX(1.08vw);
   }
-  100% {
-    transform: rotate(-360deg) translateX(1.08vw) rotate(360deg);
+  to {
+    transform: rotate(-360deg) translateX(1.08vw);
   }
 }
 #venus::after {
-  content: "venus";
   color: rgb(173, 227, 140);
-  position: absolute;
+  content: "venus";
+  display: none;
   left: 100%;
   padding: 0.2rem;
-  font-size: 0.8rem;
-  display: none;
+  position: absolute;
 }
-
 #earth {
-  width: 0.256vw;
   animation: orbit-earth 3.65s linear infinite;
   background-color: rgb(38, 99, 192);
+  width: 0.256vw;
 }
-
 @keyframes orbit-earth {
-  0% {
-    transform: rotate(0deg) translateX(1.5vw) rotate(0deg);
+  from {
+    transform: rotate(0deg) translateX(1.5vw);
   }
-  100% {
-    transform: rotate(-360deg) translateX(1.5vw) rotate(360deg);
+  to {
+    transform: rotate(-360deg) translateX(1.5vw);
   }
 }
 #earth::after {
-  content: "earth";
   color: rgb(38, 99, 192);
-  position: absolute;
+  content: "earth";
+  display: none;
   left: 100%;
   padding: 0.2rem;
-  font-size: 0.8rem;
-  display: none;
-}
-
-#mars {
-  width: 0.136vw;
-  animation: orbit-mars 6.87s linear infinite;
-  background-color: rgb(141, 21, 21);
-}
-
-@keyframes orbit-mars {
-  0% {
-    transform: rotate(0deg) translateX(2.28vw) rotate(0deg);
-  }
-  100% {
-    transform: rotate(-360deg) translateX(2.28vw) rotate(360deg);
-  }
-}
-#mars::after {
-  content: "mars";
-  color: rgb(141, 21, 21);
   position: absolute;
-  left: 100%;
-  padding: 0.2rem;
-  font-size: 0.8rem;
-  display: none;
 }
-
-#jupiter {
-  width: 2.84vw;
-  animation: orbit-jupiter 43.33s linear infinite;
-  background-color: rgb(187, 122, 58);
-}
-
-@keyframes orbit-jupiter {
-  0% {
-    transform: rotate(0deg) translateX(7.78vw) rotate(0deg);
-  }
-  100% {
-    transform: rotate(-360deg) translateX(7.78vw) rotate(360deg);
-  }
-}
-#jupiter::after {
-  content: "jupiter";
-  color: rgb(187, 122, 58);
-  position: absolute;
-  left: 100%;
-  padding: 0.2rem;
-  font-size: 0.8rem;
-  display: none;
-}
-
-#saturn {
-  width: 2.4vw;
-  animation: orbit-saturn 107.59s linear infinite;
-  background-color: rgb(187, 219, 58);
-}
-
-@keyframes orbit-saturn {
-  0% {
-    transform: rotate(0deg) translateX(14.3vw) rotate(0deg);
-  }
-  100% {
-    transform: rotate(-360deg) translateX(14.3vw) rotate(360deg);
-  }
-}
-#saturn::after {
-  content: "saturn";
-  color: rgb(187, 219, 58);
-  position: absolute;
-  left: 100%;
-  padding: 0.2rem;
-  font-size: 0.8rem;
-  display: none;
-}
-
-#uranus {
-  width: 1.036vw;
-  animation: orbit-uranus 306.87s linear infinite;
-  background-color: rgb(54, 156, 156);
-}
-
-@keyframes orbit-uranus {
-  0% {
-    transform: rotate(0deg) translateX(28.7vw) rotate(0deg);
-  }
-  100% {
-    transform: rotate(-360deg) translateX(28.7vw) rotate(360deg);
-  }
-}
-#uranus::after {
-  content: "uranus";
-  color: rgb(54, 156, 156);
-  position: absolute;
-  left: 100%;
-  padding: 0.2rem;
-  font-size: 0.8rem;
-  display: none;
-}
-
-#neptune {
-  width: 0.99vw;
-  animation: orbit-neptune 601.9s linear infinite;
-  background-color: rgb(196, 196, 196);
-}
-
-@keyframes orbit-neptune {
-  0% {
-    transform: rotate(0deg) translateX(45vw) rotate(0deg);
-  }
-  100% {
-    transform: rotate(-360deg) translateX(45vw) rotate(360deg);
-  }
-}
-#neptune::after {
-  content: "neptune";
-  color: rgb(196, 196, 196);
-  position: absolute;
-  left: 100%;
-  padding: 0.2rem;
-  font-size: 0.8rem;
-  display: none;
-}
-
 #luna {
+  animation: orbit-luna 27s linear infinite;
+  background-color: rgb(245, 244, 245);
   width: 0.136vw;
-  animation: orbit-luna 13.5s linear infinite;
-  background-color: rgb(255, 255, 255);
 }
-
 @keyframes orbit-luna {
-  0% {
-    transform: rotate(0deg) translateX(0.62992vw) rotate(0deg);
+  from {
+    transform: rotate(0deg) translateX(0.62992vw);
   }
-  100% {
-    transform: rotate(-360deg) translateX(0.62992vw) rotate(360deg);
+  to {
+    transform: rotate(-360deg) translateX(0.62992vw);
   }
 }
 #luna::after {
+  color: rgb(245, 244, 245);
   content: "luna";
-  color: rgb(255, 255, 255);
-  position: absolute;
+  display: none;
   left: 100%;
   padding: 0.2rem;
-  font-size: 0.8rem;
-  display: none;
+  position: absolute;
 }
-
-#diemos {
-  width: 0.00048vw;
-  animation: orbit-diemos 0.6s linear infinite;
-  background-color: rgb(255, 255, 255);
+#mars {
+  animation: orbit-mars 6.87s linear infinite;
+  background-color: rgb(141, 21, 21);
+  width: 0.136vw;
 }
-
-@keyframes orbit-diemos {
-  0% {
-    transform: rotate(0deg) translateX(0.568115vw) rotate(0deg);
+@keyframes orbit-mars {
+  from {
+    transform: rotate(0deg) translateX(2.28vw);
   }
-  100% {
-    transform: rotate(-360deg) translateX(0.568115vw) rotate(360deg);
+  to {
+    transform: rotate(-360deg) translateX(2.28vw);
+  }
+}
+#mars::after {
+  color: rgb(141, 21, 21);
+  content: "mars";
+  display: none;
+  left: 100%;
+  padding: 0.2rem;
+  position: absolute;
+}
+#diemos {
+  animation: orbit-diemos 1.2s linear infinite;
+  background-color: rgb(245, 244, 245);
+  width: 0.00048vw;
+}
+@keyframes orbit-diemos {
+  from {
+    transform: rotate(0deg) translateX(0.568115vw);
+  }
+  to {
+    transform: rotate(-360deg) translateX(0.568115vw);
   }
 }
 #diemos::after {
+  color: rgb(245, 244, 245);
   content: "diemos";
-  color: rgb(255, 255, 255);
-  position: absolute;
+  display: none;
   left: 100%;
   padding: 0.2rem;
-  font-size: 0.8rem;
-  display: none;
+  position: absolute;
 }
-
 #phobos {
+  animation: orbit-phobos 0.3s linear infinite;
+  background-color: rgb(245, 244, 245);
   width: 0.00088vw;
-  animation: orbit-phobos 0.15s linear infinite;
-  background-color: rgb(255, 255, 255);
 }
-
 @keyframes orbit-phobos {
-  0% {
-    transform: rotate(0deg) translateX(0.568045vw) rotate(0deg);
+  from {
+    transform: rotate(0deg) translateX(0.568045vw);
   }
-  100% {
-    transform: rotate(-360deg) translateX(0.568045vw) rotate(360deg);
+  to {
+    transform: rotate(-360deg) translateX(0.568045vw);
   }
 }
 #phobos::after {
+  color: rgb(245, 244, 245);
   content: "phobos";
-  color: rgb(255, 255, 255);
-  position: absolute;
+  display: none;
   left: 100%;
   padding: 0.2rem;
-  font-size: 0.8rem;
-  display: none;
+  position: absolute;
 }
-
-#callisto {
-  width: 0.192vw;
-  animation: orbit-callisto 8.35s linear infinite;
-  background-color: rgb(255, 255, 255);
+#jupiter {
+  animation: orbit-jupiter 43.33s linear infinite;
+  background-color: rgb(187, 122, 58);
+  width: 2.84vw;
 }
-
-@keyframes orbit-callisto {
-  0% {
-    transform: rotate(0deg) translateX(1.929415vw) rotate(0deg);
+@keyframes orbit-jupiter {
+  from {
+    transform: rotate(0deg) translateX(7.78vw);
   }
-  100% {
-    transform: rotate(-360deg) translateX(1.929415vw) rotate(360deg);
+  to {
+    transform: rotate(-360deg) translateX(7.78vw);
+  }
+}
+#jupiter::after {
+  color: rgb(187, 122, 58);
+  content: "jupiter";
+  display: none;
+  left: 100%;
+  padding: 0.2rem;
+  position: absolute;
+}
+#callisto {
+  animation: orbit-callisto 16.7s linear infinite;
+  background-color: rgb(245, 244, 245);
+  width: 0.192vw;
+}
+@keyframes orbit-callisto {
+  from {
+    transform: rotate(0deg) translateX(1.929415vw);
+  }
+  to {
+    transform: rotate(-360deg) translateX(1.929415vw);
   }
 }
 #callisto::after {
+  color: rgb(245, 244, 245);
   content: "callisto";
-  color: rgb(255, 255, 255);
-  position: absolute;
+  display: none;
   left: 100%;
   padding: 0.2rem;
-  font-size: 0.8rem;
-  display: none;
-}
-
-#io {
-  width: 0.144vw;
-  animation: orbit-io 0.85s linear infinite;
-  background-color: rgb(255, 255, 255);
-}
-
-@keyframes orbit-io {
-  0% {
-    transform: rotate(0deg) translateX(1.922vw) rotate(0deg);
-  }
-  100% {
-    transform: rotate(-360deg) translateX(1.922vw) rotate(360deg);
-  }
-}
-#io::after {
-  content: "io";
-  color: rgb(255, 255, 255);
   position: absolute;
-  left: 100%;
-  padding: 0.2rem;
-  font-size: 0.8rem;
-  display: none;
 }
-
 #europa {
+  animation: orbit-europa 3.5s linear infinite;
+  background-color: rgb(245, 244, 245);
   width: 0.12vw;
-  animation: orbit-europa 1.75s linear infinite;
-  background-color: rgb(255, 255, 255);
 }
-
 @keyframes orbit-europa {
-  0% {
-    transform: rotate(0deg) translateX(1.92335vw) rotate(0deg);
+  from {
+    transform: rotate(0deg) translateX(1.92335vw);
   }
-  100% {
-    transform: rotate(-360deg) translateX(1.92335vw) rotate(360deg);
+  to {
+    transform: rotate(-360deg) translateX(1.92335vw);
   }
 }
 #europa::after {
+  color: rgb(245, 244, 245);
   content: "europa";
-  color: rgb(255, 255, 255);
-  position: absolute;
+  display: none;
   left: 100%;
   padding: 0.2rem;
-  font-size: 0.8rem;
-  display: none;
+  position: absolute;
 }
-
 #ganymede {
+  animation: orbit-ganymede 7s linear infinite;
+  background-color: rgb(245, 244, 245);
   width: 0.208vw;
-  animation: orbit-ganymede 3.5s linear infinite;
-  background-color: rgb(255, 255, 255);
 }
-
 @keyframes orbit-ganymede {
-  0% {
-    transform: rotate(0deg) translateX(1.925vw) rotate(0deg);
+  from {
+    transform: rotate(0deg) translateX(1.925vw);
   }
-  100% {
-    transform: rotate(-360deg) translateX(1.925vw) rotate(360deg);
+  to {
+    transform: rotate(-360deg) translateX(1.925vw);
   }
 }
 #ganymede::after {
+  color: rgb(245, 244, 245);
   content: "ganymede";
-  color: rgb(255, 255, 255);
-  position: absolute;
+  display: none;
   left: 100%;
   padding: 0.2rem;
-  font-size: 0.8rem;
-  display: none;
-}
-
-#enceladus {
-  width: 0.02vw;
-  animation: orbit-enceladus 0.685s linear infinite;
-  background-color: rgb(255, 255, 255);
-}
-
-@keyframes orbit-enceladus {
-  0% {
-    transform: rotate(0deg) translateX(1.70119vw) rotate(0deg);
-  }
-  100% {
-    transform: rotate(-360deg) translateX(1.70119vw) rotate(360deg);
-  }
-}
-#enceladus::after {
-  content: "enceladus";
-  color: rgb(255, 255, 255);
   position: absolute;
+}
+#io {
+  animation: orbit-io 1.7s linear infinite;
+  background-color: rgb(245, 244, 245);
+  width: 0.144vw;
+}
+@keyframes orbit-io {
+  from {
+    transform: rotate(0deg) translateX(1.922vw);
+  }
+  to {
+    transform: rotate(-360deg) translateX(1.922vw);
+  }
+}
+#io::after {
+  color: rgb(245, 244, 245);
+  content: "io";
+  display: none;
   left: 100%;
   padding: 0.2rem;
-  font-size: 0.8rem;
-  display: none;
-}
-
-#tethys {
-  width: 0.04vw;
-  animation: orbit-tethys 0.945s linear infinite;
-  background-color: rgb(255, 255, 255);
-}
-
-@keyframes orbit-tethys {
-  0% {
-    transform: rotate(0deg) translateX(1.70147vw) rotate(0deg);
-  }
-  100% {
-    transform: rotate(-360deg) translateX(1.70147vw) rotate(360deg);
-  }
-}
-#tethys::after {
-  content: "tethys";
-  color: rgb(255, 255, 255);
   position: absolute;
+}
+#saturn {
+  animation: orbit-saturn 107.59s linear infinite;
+  background-color: rgb(187, 219, 58);
+  width: 2.4vw;
+}
+@keyframes orbit-saturn {
+  from {
+    transform: rotate(0deg) translateX(14.3vw);
+  }
+  to {
+    transform: rotate(-360deg) translateX(14.3vw);
+  }
+}
+#saturn::after {
+  color: rgb(187, 219, 58);
+  content: "saturn";
+  display: none;
   left: 100%;
   padding: 0.2rem;
-  font-size: 0.8rem;
-  display: none;
+  position: absolute;
 }
-
 #dione {
+  animation: orbit-dione 2.74s linear infinite;
+  background-color: rgb(245, 244, 245);
   width: 0.044vw;
-  animation: orbit-dione 1.37s linear infinite;
-  background-color: rgb(255, 255, 255);
 }
-
 @keyframes orbit-dione {
-  0% {
-    transform: rotate(0deg) translateX(1.701885vw) rotate(0deg);
+  from {
+    transform: rotate(0deg) translateX(1.701885vw);
   }
-  100% {
-    transform: rotate(-360deg) translateX(1.701885vw) rotate(360deg);
+  to {
+    transform: rotate(-360deg) translateX(1.701885vw);
   }
 }
 #dione::after {
+  color: rgb(245, 244, 245);
   content: "dione";
-  color: rgb(255, 255, 255);
-  position: absolute;
+  display: none;
   left: 100%;
   padding: 0.2rem;
-  font-size: 0.8rem;
-  display: none;
-}
-
-#titan {
-  width: 0.2vw;
-  animation: orbit-titan 8s linear infinite;
-  background-color: rgb(255, 255, 255);
-}
-
-@keyframes orbit-titan {
-  0% {
-    transform: rotate(0deg) translateX(1.7061vw) rotate(0deg);
-  }
-  100% {
-    transform: rotate(-360deg) translateX(1.7061vw) rotate(360deg);
-  }
-}
-#titan::after {
-  content: "titan";
-  color: rgb(255, 255, 255);
   position: absolute;
+}
+#enceladus {
+  animation: orbit-enceladus 1.37s linear infinite;
+  background-color: rgb(245, 244, 245);
+  width: 0.02vw;
+}
+@keyframes orbit-enceladus {
+  from {
+    transform: rotate(0deg) translateX(1.70119vw);
+  }
+  to {
+    transform: rotate(-360deg) translateX(1.70119vw);
+  }
+}
+#enceladus::after {
+  color: rgb(245, 244, 245);
+  content: "enceladus";
+  display: none;
   left: 100%;
   padding: 0.2rem;
-  font-size: 0.8rem;
-  display: none;
+  position: absolute;
 }
-
 #iapetus {
+  animation: orbit-iapetus 79s linear infinite;
+  background-color: rgb(245, 244, 245);
   width: 0.056vw;
-  animation: orbit-iapetus 39.5s linear infinite;
-  background-color: rgb(255, 255, 255);
 }
-
 @keyframes orbit-iapetus {
-  0% {
-    transform: rotate(0deg) translateX(1.7178vw) rotate(0deg);
+  from {
+    transform: rotate(0deg) translateX(1.7178vw);
   }
-  100% {
-    transform: rotate(-360deg) translateX(1.7178vw) rotate(360deg);
+  to {
+    transform: rotate(-360deg) translateX(1.7178vw);
   }
 }
 #iapetus::after {
+  color: rgb(245, 244, 245);
   content: "iapetus";
-  color: rgb(255, 255, 255);
-  position: absolute;
+  display: none;
   left: 100%;
   padding: 0.2rem;
-  font-size: 0.8rem;
-  display: none;
+  position: absolute;
 }
-
-#ariel {
-  width: 0.044vw;
-  animation: orbit-ariel 1.25s linear infinite;
-  background-color: rgb(255, 255, 255);
+#tethys {
+  animation: orbit-tethys 1.89s linear infinite;
+  background-color: rgb(245, 244, 245);
+  width: 0.04vw;
 }
-
-@keyframes orbit-ariel {
-  0% {
-    transform: rotate(0deg) translateX(1.018955vw) rotate(0deg);
+@keyframes orbit-tethys {
+  from {
+    transform: rotate(0deg) translateX(1.70147vw);
   }
-  100% {
-    transform: rotate(360deg) translateX(1.018955vw) rotate(-360deg);
+  to {
+    transform: rotate(-360deg) translateX(1.70147vw);
+  }
+}
+#tethys::after {
+  color: rgb(245, 244, 245);
+  content: "tethys";
+  display: none;
+  left: 100%;
+  padding: 0.2rem;
+  position: absolute;
+}
+#titan {
+  animation: orbit-titan 16s linear infinite;
+  background-color: rgb(245, 244, 245);
+  width: 0.2vw;
+}
+@keyframes orbit-titan {
+  from {
+    transform: rotate(0deg) translateX(1.7061vw);
+  }
+  to {
+    transform: rotate(-360deg) translateX(1.7061vw);
+  }
+}
+#titan::after {
+  color: rgb(245, 244, 245);
+  content: "titan";
+  display: none;
+  left: 100%;
+  padding: 0.2rem;
+  position: absolute;
+}
+#uranus {
+  animation: orbit-uranus 306.87s linear infinite;
+  background-color: rgb(54, 156, 156);
+  width: 1.036vw;
+}
+@keyframes orbit-uranus {
+  from {
+    transform: rotate(0deg) translateX(28.7vw);
+  }
+  to {
+    transform: rotate(-360deg) translateX(28.7vw);
+  }
+}
+#uranus::after {
+  color: rgb(54, 156, 156);
+  content: "uranus";
+  display: none;
+  left: 100%;
+  padding: 0.2rem;
+  position: absolute;
+}
+#ariel {
+  animation: orbit-ariel 2.5s linear infinite;
+  background-color: rgb(245, 244, 245);
+  width: 0.044vw;
+}
+@keyframes orbit-ariel {
+  from {
+    transform: rotate(0deg) translateX(1.018955vw);
+  }
+  to {
+    transform: rotate(+360deg) translateX(1.018955vw);
   }
 }
 #ariel::after {
+  color: rgb(245, 244, 245);
   content: "ariel";
-  color: rgb(255, 255, 255);
-  position: absolute;
+  display: none;
   left: 100%;
   padding: 0.2rem;
-  font-size: 0.8rem;
-  display: none;
+  position: absolute;
 }
-
 #oberon {
+  animation: orbit-oberon 13.463s linear infinite;
+  background-color: rgb(245, 244, 245);
   width: 0.06vw;
-  animation: orbit-oberon 6.7315s linear infinite;
-  background-color: rgb(255, 255, 255);
 }
-
 @keyframes orbit-oberon {
-  0% {
-    transform: rotate(0deg) translateX(1.02091vw) rotate(0deg);
+  from {
+    transform: rotate(0deg) translateX(1.02091vw);
   }
-  100% {
-    transform: rotate(360deg) translateX(1.02091vw) rotate(-360deg);
+  to {
+    transform: rotate(+360deg) translateX(1.02091vw);
   }
 }
 #oberon::after {
+  color: rgb(245, 244, 245);
   content: "oberon";
-  color: rgb(255, 255, 255);
-  position: absolute;
+  display: none;
   left: 100%;
   padding: 0.2rem;
-  font-size: 0.8rem;
-  display: none;
+  position: absolute;
 }
-
 #titania {
+  animation: orbit-titania 8.7s linear infinite;
+  background-color: rgb(245, 244, 245);
   width: 0.06vw;
-  animation: orbit-titania 4.35s linear infinite;
-  background-color: rgb(255, 255, 255);
 }
-
 @keyframes orbit-titania {
-  0% {
-    transform: rotate(0deg) translateX(1.020175vw) rotate(0deg);
+  from {
+    transform: rotate(0deg) translateX(1.020175vw);
   }
-  100% {
-    transform: rotate(360deg) translateX(1.020175vw) rotate(-360deg);
+  to {
+    transform: rotate(+360deg) translateX(1.020175vw);
   }
 }
 #titania::after {
+  color: rgb(245, 244, 245);
   content: "titania";
-  color: rgb(255, 255, 255);
-  position: absolute;
+  display: none;
   left: 100%;
   padding: 0.2rem;
-  font-size: 0.8rem;
-  display: none;
+  position: absolute;
 }
-
-#proteus {
-  width: 0.0336vw;
-  animation: orbit-proteus 0.56s linear infinite;
-  background-color: rgb(255, 255, 255);
+#neptune {
+  animation: orbit-neptune 601.9s linear infinite;
+  background-color: rgb(196, 196, 196);
+  width: 0.99vw;
 }
-
-@keyframes orbit-proteus {
-  0% {
-    transform: rotate(0deg) translateX(0.995585vw) rotate(0deg);
+@keyframes orbit-neptune {
+  from {
+    transform: rotate(0deg) translateX(45vw);
   }
-  100% {
-    transform: rotate(-360deg) translateX(0.995585vw) rotate(360deg);
+  to {
+    transform: rotate(-360deg) translateX(45vw);
+  }
+}
+#neptune::after {
+  color: rgb(196, 196, 196);
+  content: "neptune";
+  display: none;
+  left: 100%;
+  padding: 0.2rem;
+  position: absolute;
+}
+#proteus {
+  animation: orbit-proteus 1.12s linear infinite;
+  background-color: rgb(245, 244, 245);
+  width: 0.0336vw;
+}
+@keyframes orbit-proteus {
+  from {
+    transform: rotate(0deg) translateX(0.995585vw);
+  }
+  to {
+    transform: rotate(-360deg) translateX(0.995585vw);
   }
 }
 #proteus::after {
+  color: rgb(245, 244, 245);
   content: "proteus";
-  color: rgb(255, 255, 255);
-  position: absolute;
+  display: none;
   left: 100%;
   padding: 0.2rem;
-  font-size: 0.8rem;
-  display: none;
+  position: absolute;
 }
-
 #triton {
+  animation: orbit-triton 5.877s linear infinite;
+  background-color: rgb(245, 244, 245);
   width: 0.108vw;
-  animation: orbit-triton 2.9385s linear infinite;
-  background-color: rgb(255, 255, 255);
 }
-
 @keyframes orbit-triton {
-  0% {
-    transform: rotate(0deg) translateX(0.99677vw) rotate(0deg);
+  from {
+    transform: rotate(0deg) translateX(0.99677vw);
   }
-  100% {
-    transform: rotate(360deg) translateX(0.99677vw) rotate(-360deg);
+  to {
+    transform: rotate(+360deg) translateX(0.99677vw);
   }
 }
 #triton::after {
+  color: rgb(245, 244, 245);
   content: "triton";
-  color: rgb(255, 255, 255);
-  position: absolute;
+  display: none;
   left: 100%;
   padding: 0.2rem;
-  font-size: 0.8rem;
-  display: none;
+  position: absolute;
 }
-
+html:has(#show-names:hover) *::after {
+  display: block;
+}
 .hoverable {
   cursor: pointer;
 }
-
-/*# sourceMappingURL=styles.css.map */
