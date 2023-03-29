@@ -9,12 +9,18 @@
   );
 }
 
+@function ternary($data, $key, $default) {
+  @return if(map-has-key($data, $key), map.get($data, $key), $default);
+}
+
 @function scale-data($orbiter, $values, $is-moon: null) {
-  $colour: if(
-    map-has-key(colours.$colours, $orbiter),
-    map.get(colours.$colours, $orbiter),
+  $colour: ternary(
+    colours.$colours,
+    $orbiter,
     map.get(colours.$colours, "default")
   );
+  $retrograde: ternary($values, "retrograde", false);
+  $symbol: ternary($values, "symbol", null);
 
   $radius: scale-down($values, "radius");
   $distance: scale-down($values, "distance");
@@ -28,24 +34,22 @@
     $period: calc($period * map.get(scale-factors.$moon-weightings, "period"));
   }
 
-  $retrograde: if(
-    map-has-key($values, "retrograde"),
-    map.get($values, "retrograde"),
-    false
-  );
-
   @return (
     radius: $radius,
     distance: $distance,
     period: $period,
     colour: $colour,
-    retrograde: $retrograde
+    retrograde: $retrograde,
+    symbol: $symbol
   );
 }
 
 @mixin tooltip($name, $data) {
+  $prefix: if(map.get($data, "symbol"), map.get($data, "symbol") + "\00a0", "");
+  $content: $prefix + $name;
+
   color: #{map.get($data, "colour")};
-  content: "#{$name}";
+  content: "#{$content}";
   display: none;
   left: 100%;
   padding: 0.2rem;
