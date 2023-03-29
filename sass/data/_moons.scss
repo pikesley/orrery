@@ -1,105 +1,106 @@
 // radius is in km
-// distance is mean planet-sun distance in km^6
+// distance is mean planet-moon distance in km^6
 // period is in earth days
 $moons: (
   earth: (
     luna: (
-      radius: 1700,
       distance: 0.384,
       period: 27,
+      radius: 1700,
+      symbol: ☽︎,
     ),
   ),
   mars: (
     diemos: (
-      radius: 6,
       distance: 0.023,
       period: 1.2,
+      radius: 6,
     ),
     phobos: (
-      radius: 11,
       distance: 0.009,
       period: 0.3,
+      radius: 11,
     ),
   ),
   jupiter: (
     callisto: (
-      radius: 2400,
       distance: 1.883,
       period: 16.7,
+      radius: 2400,
     ),
     europa: (
-      radius: 1500,
       distance: 0.67,
       period: 3.5,
+      radius: 1500,
     ),
     ganymede: (
-      radius: 2600,
       distance: 1,
       period: 7,
+      radius: 2600,
     ),
     io: (
-      radius: 1800,
       distance: 0.4,
       period: 1.7,
+      radius: 1800,
     ),
   ),
   saturn: (
     dione: (
-      radius: 550,
       distance: 0.377,
       period: 2.74,
+      radius: 550,
     ),
     enceladus: (
-      radius: 250,
       distance: 0.238,
       period: 1.37,
+      radius: 250,
     ),
     iapetus: (
-      radius: 700,
       distance: 3.56,
       period: 79,
+      radius: 700,
     ),
     tethys: (
-      radius: 500,
       distance: 0.294,
       period: 1.89,
+      radius: 500,
     ),
     titan: (
-      radius: 2500,
       distance: 1.22,
       period: 16,
+      radius: 2500,
     ),
   ),
   uranus: (
     ariel: (
-      radius: 550,
       distance: 0.191,
       period: 2.5,
+      radius: 550,
       retrograde: true,
     ),
     oberon: (
-      radius: 750,
       distance: 0.582,
       period: 13.463,
+      radius: 750,
       retrograde: true,
     ),
     titania: (
-      radius: 750,
       distance: 0.435,
       period: 8.7,
+      radius: 750,
       retrograde: true,
     ),
   ),
   neptune: (
     proteus: (
-      radius: 420,
       distance: 0.117,
       period: 1.12,
+      radius: 420,
     ),
     triton: (
-      radius: 1350,
       distance: 0.354,
       period: 5.877,
+      radius: 1350,
       retrograde: true,
     ),
   ),
