@@ -46,7 +46,3 @@ $scaled-sun: calc(
 html:has(#show-names:hover) *::after {
   display: block;
 }
-
-.hoverable {
-  cursor: pointer;
-}
