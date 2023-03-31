@@ -25,7 +25,7 @@ $background-colour: map.get(colours.$colours, "background");
 
 #words {
   @include scrollbars;
-
+  
   background-color: $background-colour;
 
   border-color: $colour;
@@ -34,8 +34,6 @@ $background-colour: map.get(colours.$colours, "background");
 
   color: $colour;
 
-  display: none;
-  left: 1rem;
   max-height: 90%;
 
   max-width: 80%;
@@ -43,11 +41,6 @@ $background-colour: map.get(colours.$colours, "background");
   overflow: auto;
 
   padding: 1rem;
-
-  position: fixed;
-  top: 1rem;
-
-  z-index: 10;
 
   h1 {
     margin-top: 0;
@@ -98,11 +91,24 @@ $background-colour: map.get(colours.$colours, "background");
   }
 }
 
-#show-text {
+$hover-padding: 2rem;
+
+.hoverable {
   color: $colour;
+  cursor: pointer;
   display: block;
   left: 1rem;
+  padding-right: $hover-padding;
   position: fixed;
+}
+
+.hoverable::before {
+  font-size: 1.2rem;
+  margin-right: 1rem;
+}
+
+#show-text {
+  padding-bottom: $hover-padding;
   top: 1rem;
 }
 
@@ -112,19 +118,11 @@ $background-colour: map.get(colours.$colours, "background");
 
 #show-names {
   bottom: 1rem;
-  color: $colour;
-  display: block;
-  left: 1rem;
-  position: fixed;
+  padding-top: $hover-padding;
 }
 
 #show-names::before {
   content: "\1F52D";
-}
-
-.hoverable::before {
-  font-size: 1.2rem;
-  margin-right: 1rem;
 }
 
 html:has(#show-text:hover) #words {
